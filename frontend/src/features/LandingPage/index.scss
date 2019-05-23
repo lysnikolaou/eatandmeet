@@ -1,0 +1,19 @@
+$mensa : "https://www.tu-berlin.de/fileadmin/a70100710/Fotos/Pressestellenarchiv/Mensa_Eingang-2_b_ck.jpg";
+
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  //background-image: $mensa;
+  background-color: cadetblue;
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

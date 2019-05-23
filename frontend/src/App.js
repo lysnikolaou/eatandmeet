@@ -1,11 +1,23 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import  PrivateRoute from './components/PrivateRoute';
+import HomePage from './features/HomePage';
+import LoginPage from './features/LoginPage';
+import LandingPage from './features/LandingPage';
+
 
 function App() {
   return (
-    <div className="App">
-      <Icons/>
-    </div>
+      <div>
+          <Router>
+              <div>
+                  <LandingPage />
+                  {/*<PrivateRoute exact path="/" component={HomePage} />*/}
+                  {/*<Route path="/login" component={LoginPage} />*/}
+              </div>
+          </Router>
+      </div>
   );
 }
 

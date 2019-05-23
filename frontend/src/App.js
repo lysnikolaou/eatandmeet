@@ -9,13 +9,10 @@ import LandingPage from './features/LandingPage';
 
 function App() {
   return (
-      <div>
+      <div className={App}>
           <Router>
-              <div>
-                  <LandingPage />
-                  {/*<PrivateRoute exact path="/" component={HomePage} />*/}
-                  {/*<Route path="/login" component={LoginPage} />*/}
-              </div>
+                  <PrivateRoute exact path="/" component={HomePage} />
+                  <Route path="/welcome" component={LandingPage} />
           </Router>
       </div>
   );

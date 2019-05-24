@@ -3,7 +3,7 @@ from rest_framework import serializers
 from .models import User
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
@@ -22,3 +22,16 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+
+class UserUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
+        read_only_fields = ('id', 'last_login', 'is_superuser', 'is_staff',
+                            'is_active', 'date_joined', 'groups',
+                            'user_permissions')
+        extra_kwargs = {
+            'username': {'required': False},
+            'password': {'required': False, 'write_only': True}
+        }

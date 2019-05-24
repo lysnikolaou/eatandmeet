@@ -25,7 +25,7 @@ SECRET_KEY = '7%p2y#v24pw5ro9!hw=68p733n4(w93mc*r(kdhoie=f19tult'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lysnikolaou.com']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'multiselectfield',
     'rest_framework',
     'api',
+    'authentication'
 ]
 
 MIDDLEWARE = [
@@ -75,6 +76,7 @@ WSGI_APPLICATION = 'eatandmeet.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+AUTH_USER_MODEL = 'authentication.User'
 
 DATABASES = {
     'default': {

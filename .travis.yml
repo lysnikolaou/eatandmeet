@@ -10,7 +10,7 @@ matrix:
       script:
         - pytest backend/eatandmeet
 
-    -language: node_js
+    - language: node_js
       node_js:
         - "stable"
       cache:

@@ -8,7 +8,7 @@ matrix:
       install:
         - python3 -m pip install -r backend/dev_requirements.txt
       script:
-        - cd backend/eatandmeet && pytest
+        - pytest backend/eatandmeet
 
     -language: node_js
       node_js:
@@ -24,5 +24,5 @@ matrix:
         skip_cleanup: true
         domain: <my_name_here>.surge.sh
         project: ./build/
-      on:
-        branch: master
+        on:
+          branch: master

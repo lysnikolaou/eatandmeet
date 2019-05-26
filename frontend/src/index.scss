@@ -1,5 +1,13 @@
 @import "static/styles/index.scss";
 
+.link {
+    color: $color-jungle;
+}
+
+.link:hover {
+    color: $color-floral;
+}
+
 button,
 button::after {
     -webkit-transition: all 0.3s;

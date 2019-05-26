@@ -1,5 +1,7 @@
-// This is the Component which Decide whether a user will be redirect to Login/Register Page or logged into Web
-// Basically a gate
+/**
+ * This is the Component which Decide whether a user will be redirect to Login/Register Page or logged into Web
+ * Basically a gate
+ */
 
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';

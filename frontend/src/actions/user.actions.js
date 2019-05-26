@@ -9,8 +9,8 @@
  * and then dispatch a success or error action based on the result of the async task.
  *
  * For example the login() action creator performs the following steps:
- * 1. dispatches a LOGIN_REQUEST action with dispatch(request({ username }));
- * 2. calls the async task userService.login(username, password)
+ * 1. dispatches a LOGIN_REQUEST action with dispatch(request({ email }));
+ * 2. calls the async task userService.login(email, password)
  * 3. dispatches a LOGIN_SUCCESS with dispatch(success(user));
  * if login was successful, or dispatches a LOGIN_FAILURE action with dispatch(failure(error)); if login failed
  */
@@ -29,11 +29,11 @@ export const userActions = {
 };
 
 // Login Function
-function login(username, password) {
+function login(email, password) {
     return dispatch => {
-        dispatch(request({username}));
+        dispatch(request({email}));
 
-        userService.login(username, password)
+        userService.login(email, password)
             .then(
                 user => {
                     dispatch(success(user));
@@ -66,8 +66,8 @@ function register(user) {
             .then(
                 user => {
                     dispatch(success());
-                    history.push('/login');
                     dispatch(alertActions.success('Registration successful'));
+                    history.push('welcome/login');
                 },
                 error => {
                     dispatch(failure(error.toString()));

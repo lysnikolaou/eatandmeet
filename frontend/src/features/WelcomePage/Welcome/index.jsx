@@ -9,10 +9,14 @@ import Register from "../Register";
 class Index extends Component {
     render() {
         return (
-            <div>
-                <h1 >WELCOME TO EAT&MEET - A FOOD DATE MATCHING APP</h1>
-                <div className="mb-4 mt-3">
-                    Join our Growing Community for free
+            <div className="container-fluid">
+                <div className="text-center">
+                    <h2>WELCOME TO EAT&MEET - A FOOD DATE MATCHING APP</h2>
+                </div>
+                <div>
+                    <p className="text-center">
+                        Join our Growing Community for free
+                    </p>
                 </div>
                 <div className="row justify-content-md-center">
                     <div className="col col-lg-4">
@@ -24,7 +28,7 @@ class Index extends Component {
                     </div>
                     <div className="col col-lg-4">
                         <Link to={paths.REGISTER}>
-                            <button type="button" className="btn btn-jungle btn-rounded btn-effect btn-block">Register Now!</button>
+                            <button type="button" className="btn btn-jungle btn-rounded btn-effect btn-block">Register</button>
                         </Link>
                     </div>
                 </div>

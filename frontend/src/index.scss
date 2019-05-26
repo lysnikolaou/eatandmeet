@@ -1,11 +1,17 @@
 @import "static/styles/index.scss";
 
+* {
+    font-family: 'Trebuchet', sans-serif;
+}
+
 .link {
     color: $color-jungle;
 }
 
+a:hover,
 .link:hover {
     color: $color-floral;
+    text-decoration: none;
 }
 
 button,

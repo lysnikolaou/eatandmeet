@@ -9,7 +9,9 @@ const WelcomeLayout = ({ children }) => (
     <div>
         <div className={"cover"}/>
         <div className="bg-text">
-            <img src={logo} className="landing_logo" alt="logo"/>
+            <div className="row">
+                <img src={logo} className="landing_logo img-responsive" alt="logo"/>
+            </div>
             {children}
         </div>
     </div>

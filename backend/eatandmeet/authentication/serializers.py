@@ -4,6 +4,11 @@ from .models import User
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
+    """
+    This serializers is used by the user-list view. It specifies that a
+    password is write_only and has a custom create method for a User to be
+    created.
+    """
     class Meta:
         model = User
         fields = '__all__'
@@ -25,6 +30,11 @@ class UserCreateSerializer(serializers.ModelSerializer):
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
+    """
+    This serializer is used by the user-detail view. There is the need
+    of an additional serializer, due to the fact, that username and password
+    are not required, when editing the user info.
+    """
     class Meta:
         model = User
         fields = '__all__'

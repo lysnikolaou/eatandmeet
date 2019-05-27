@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
-import {
-    Route,
-    Redirect,
-    Switch,
-} from 'react-router-dom';
+import {Switch} from 'react-router-dom';
 
 import WelcomeLayoutRoute from "./components/layout";
 

@@ -1,11 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import {connect} from "react-redux";
 
 import  PrivateRoute from './components/PrivateRoute';
 import {HomePage} from './features/HomePage';
 import Entrance from './features/WelcomePage/entrance'
-
 import { history } from "./helpers/history";
 import { alertActions } from "./actions/alert.actions";
 
@@ -23,7 +22,7 @@ class App extends React.Component {
     render() {
         const { alert } = this.props;
         return (
-            <div className={App}>
+            <div className="App">
                 {alert.message &&
                     <div className={`alert ${alert.type}`}>{alert.message}</div>
                 }

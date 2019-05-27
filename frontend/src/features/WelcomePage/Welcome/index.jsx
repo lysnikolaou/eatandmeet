@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import {Link, Route} from 'react-router-dom'
 
-
 import * as paths from '../paths';
-import WelcomeLayoutRoute from "../components/layout";
-import Register from "../Register";
 
 class Index extends Component {
     render() {
@@ -28,7 +25,7 @@ class Index extends Component {
                     </div>
                     <div className="col col-lg-4">
                         <Link to={paths.REGISTER}>
-                            <button type="button" className="btn btn-jungle btn-rounded btn-effect btn-block">Register</button>
+                            <button type="button" className="btn btn-jungle btn-rounded btn-block">Register</button>
                         </Link>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import * as paths from './paths'
 import { userActions } from '../../actions/user.actions';
 
 class HomePage extends React.Component {
@@ -36,7 +36,7 @@ class HomePage extends React.Component {
                 </ul>
                 }
                 <p>
-                    <Link to="/welcome">Logout</Link>
+                    <Link to={paths.WELCOME}>Logout</Link>
                 </p>
             </div>
         );

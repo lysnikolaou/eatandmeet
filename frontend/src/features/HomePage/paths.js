@@ -1,3 +1,5 @@
 export const HOME = `/`;
-export const WELCOME = `/Welcome`;
+export const WELCOME = `/welcome`;
+export const LOGIN = `${WELCOME}/login`;
+
 

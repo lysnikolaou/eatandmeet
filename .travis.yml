@@ -1,0 +1,28 @@
+dist: xenial
+matrix:
+  include:
+    - language: python
+      cache: pip
+      python:
+        - 3.7
+      install:
+        - python3 -m pip install -U -r backend/dev-requirements.txt
+      script:
+        - pytest backend/eatandmeet
+
+    # - language: node_js
+    #   node_js:
+    #     - "stable"
+    #   cache:
+    #     directories:
+    #       - node_modules
+    #   script:
+    #     - npm test
+    #     - npm run build
+    #   deploy:
+    #     provider: surge
+    #     skip_cleanup: true
+    #     domain: <my_name_here>.surge.sh
+    #     project: ./build/
+    #     on:
+    #       branch: master

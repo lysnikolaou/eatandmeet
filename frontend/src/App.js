@@ -4,7 +4,9 @@ import {connect} from "react-redux";
 
 import  PrivateRoute from './components/PrivateRoute';
 import {HomePage} from './features/HomePage';
-import Entrance from './features/WelcomePage/entrance'
+import Welcome from './features/WelcomePage/entrance';
+import Sandbox from './features/Sandbox/entrance';
+
 import { history } from "./helpers/history";
 import { alertActions } from "./actions/alert.actions";
 
@@ -28,7 +30,8 @@ class App extends React.Component {
                 }
                 <Router history={history}>
                     <PrivateRoute exact path="/" component={HomePage}/>
-                    <Route path="/welcome" component={Entrance}/>
+                    <Route path="/welcome" component={Welcome}/>
+                    <Route path="/sandbox" component={Sandbox}/>
                 </Router>
             </div>
         );

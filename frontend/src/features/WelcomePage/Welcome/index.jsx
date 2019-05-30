@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 import * as paths from '../paths';
 
-class Index extends Component {
+class Landing extends Component {
     render() {
         return (
             <div className="container-fluid">
@@ -34,4 +34,4 @@ class Index extends Component {
     }
 }
 
-export default Index;
+export default Landing;

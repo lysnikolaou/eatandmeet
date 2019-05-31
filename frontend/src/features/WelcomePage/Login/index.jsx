@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { userActions } from '../../../actions/user.actions';
 
 import * as paths from '../paths';
+import cx from 'classnames';
 
 import Loader from '../../../components/Loader'
 
@@ -52,17 +53,40 @@ class Login extends React.Component {
                 </div>
                 <div className="row">
                     <form name="form" className={"center"} onSubmit={this.handleSubmit}>
-                        {/* Email Name */}
-                        <div className={'form-group' + (submitted && !email ? ' has-error' : '')}>
-                            <input type="email" className={'form-control ' + (submitted && (!email) ? 'is-invalid' : '')} name="email" value={email} onChange={this.handleChange} placeholder="Email" />
-                            {submitted && !email &&
-                            <div className="help-block text-danger">Email is required</div>
+                        {/* Email */}
+                        <div className={cx('form-group', submitted && !email && 'has-error')}>
+                            <input
+                                type="email"
+                                className={cx('form-control', submitted && !email && 'is-invalid')}
+                                name="email"
+                                value={email}
+                                onChange={this.handleChange}
+                                placeholder="Email"
+                            />
+                            {
+                                submitted
+                                && !email
+                                && <div className="help-block text-danger">
+                                    Email is required
+                                </div>
                             }
                         </div>
-                        <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                            <input type="password" className={"form-control" + (submitted && (!password) ? 'is-invalid' : '')} name="password" value={password} onChange={this.handleChange}  placeholder={"Password"}/>
-                            {submitted && !password &&
-                            <div className="help-block">Password is required</div>
+                        {/* Password */}
+                        <div className={cx('form-group', submitted && !password && 'has-error')}>
+                            <input
+                                type="password"
+                                className={cx("form-control ", submitted && !password && 'is-invalid')}
+                                name="password"
+                                value={password}
+                                onChange={this.handleChange}
+                                placeholder="Password"
+                            />
+                            {
+                                submitted
+                                && !password
+                                && <div className="help-block text-danger">
+                                    Password is required
+                                </div>
                             }
                         </div>
                         <div className="form-row">

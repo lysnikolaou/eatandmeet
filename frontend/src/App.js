@@ -9,6 +9,7 @@ import Sandbox from './features/Sandbox/entrance';
 
 import { history } from "./helpers/history";
 import { alertActions } from "./actions/alert.actions";
+import ProfilePage from "./components/user-profile";
 
 
 class App extends React.Component {
@@ -32,6 +33,8 @@ class App extends React.Component {
                     <PrivateRoute exact path="/" component={HomePage}/>
                     <Route path="/welcome" component={Welcome}/>
                     <Route path="/sandbox" component={Sandbox}/>
+                    <Route path="/profile" component={ProfilePage}/>;
+
                 </Router>
             </div>
         );

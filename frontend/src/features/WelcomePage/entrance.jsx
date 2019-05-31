@@ -5,7 +5,7 @@ import WelcomeLayoutRoute from "./components/layout";
 
 import {Login} from './Login';
 import {Register} from './Register';
-import Welcome from './Welcome';
+import Landing from "./Welcome";
 
 import * as paths from './paths';
 
@@ -16,7 +16,7 @@ class WelcomeEntrance extends Component {
             <Switch>
                 <WelcomeLayoutRoute
                     exact path={paths.WELCOME}
-                    component={Welcome}
+                    component={Landing}
                 />
                 <WelcomeLayoutRoute
                     path={paths.REGISTER}

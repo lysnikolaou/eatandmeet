@@ -7,6 +7,7 @@ import {HomePage} from './features/HomePage';
 import Entrance from './features/WelcomePage/entrance'
 import { history } from "./helpers/history";
 import { alertActions } from "./actions/alert.actions";
+import ProfilePage from "./components/user-profile";
 
 
 class App extends React.Component {
@@ -29,6 +30,7 @@ class App extends React.Component {
                 <Router history={history}>
                     <PrivateRoute exact path="/" component={HomePage}/>
                     <Route path="/welcome" component={Entrance}/>
+                    <Route path="/profile" component={ProfilePage}/>;
                 </Router>
             </div>
         );

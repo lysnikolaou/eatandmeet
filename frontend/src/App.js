@@ -1,13 +1,12 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import {Route, Router} from "react-router-dom";
 import {connect} from "react-redux";
 
 import  PrivateRoute from './components/PrivateRoute';
-import {HomePage} from './features/HomePage';
-import Entrance from './features/WelcomePage/entrance'
+import Entrance from './features/entrance';
+import WelcomeEntrance from './features/landing/entrance'
 import { history } from "./helpers/history";
 import { alertActions } from "./actions/alert.actions";
-import ProfilePage from "./components/user-profile";
 
 
 class App extends React.Component {
@@ -28,9 +27,8 @@ class App extends React.Component {
                     <div className={`alert ${alert.type}`}>{alert.message}</div>
                 }
                 <Router history={history}>
-                    <PrivateRoute exact path="/" component={HomePage}/>
-                    <Route path="/welcome" component={Entrance}/>
-                    <Route path="/profile" component={ProfilePage}/>;
+                    <Route exact path="/welcome" component={WelcomeEntrance}/>
+                    <PrivateRoute path="/" component={Entrance}/>
                 </Router>
             </div>
         );

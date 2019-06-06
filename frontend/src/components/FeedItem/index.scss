@@ -1,0 +1,68 @@
+@import "../../static/styles/index";
+
+
+.card {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  width: 45rem;
+  box-shadow: 0 4px 6px -6px black;
+
+  -webkit-transition: margin 0.2s ease-out;
+  -moz-transition: margin 0.2s ease-out;
+  -o-transition: margin 0.2s ease-out;
+  transition: margin 0.2s ease-out;
+}
+
+.card:hover {
+  filter:brightness(97%);
+  //-moz-box-shadow: inset 0 -20px 50px -10px $bg-gray;
+  //-webkit-box-shadow: inset 0 -20px 50px -10px $bg-gray;
+  //box-shadow: inset 0 -20px 50px -10px $bg-gray;
+}
+
+.card_go {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-left: 10px solid $color-jungle;
+}
+
+.go_notification {
+  position: absolute;
+  right: 5px;
+  color: $color_jungle;
+}
+
+.fire {
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+}
+
+.time {
+  color: $color-grantie-gray;
+}
+
+.icon_style {
+  color: $color-jungle;
+  margin: 0 auto;
+  display: block !important;
+}
+
+.avatar {
+  object-fit: cover;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  text-align: center;
+  background: $bg-gray;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+a {
+  color: inherit!important;
+}

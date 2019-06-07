@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Switch} from 'react-router-dom';
 
-import WelcomeLayoutRoute from "./components/layout";
+import WelcomeLayoutRoute from "../../components/WelcomeLayout";
 
 import {Login} from './Login';
 import {Register} from './Register';

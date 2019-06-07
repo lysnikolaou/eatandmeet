@@ -8,8 +8,14 @@
     color: $color-jungle;
 }
 
-a:hover,
 .link:hover {
+    color: $color-jungle-dark;
+    text-decoration: none;
+}
+
+
+
+a:hover {
     color: $color-floral;
     text-decoration: none;
 }
@@ -49,6 +55,9 @@ button::after {
     transition: all 0.3s ease 0s;
 }
 
+.gray-text {
+    color: $color-grantie-gray;
+}
 
 
 

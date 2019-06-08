@@ -14,8 +14,9 @@ matrix:
       os: linux
       node_js:
         - node
-      script:
+      install:
         - npm install
+      script:
         - npm test
         - npm run build
       notifications:

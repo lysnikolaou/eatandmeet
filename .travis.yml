@@ -14,10 +14,11 @@ matrix:
       os: linux
       node_js:
         - node
+      before_install: cd frontend/
       install:
-        - npm install
+        - npm run install
       script:
-        - npm test
+        - npm run test
         - npm run build
       notifications:
         email:

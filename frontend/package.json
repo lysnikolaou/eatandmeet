@@ -1,6 +1,7 @@
 {
   "name": "EatAndMeet",
   "description": "EatAndMeet - Keep in touch with people you like to eat with",
+  "homepage" : "https://github.com/lysnikolaou/eatandmeet",
   "version": "0.1.0",
   "private": true,
   "scripts": {

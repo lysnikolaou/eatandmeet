@@ -71,19 +71,19 @@ class ProfilePage extends Component {
                                 <div className="col-md-4">
                                     <div className="profile-work">
                                         <p>PROFILES</p>
-                                        <a href="">Facebook Link</a>
+                                        <a href="#facebook">Facebook Link</a>
                                         <br />
-                                        <a href="">Twitter Profile</a>
+                                        <a href="#twitter">Twitter Profile</a>
                                         <br />
-                                        <a href="">Instagram Profile</a>
+                                        <a href="#instagram">Instagram Profile</a>
                                         <p>INTERESTS</p>
-                                        <a href="">Sports</a>
+                                        <a href="#sports">Sports</a>
                                         <br />
-                                        <a href="">Science</a>
+                                        <a href="#science">Science</a>
                                         <br />
-                                        <a href="">Politics</a>
+                                        <a href="#Politics">Politics</a>
                                         <br />
-                                        <a href="">Environment</a>
+                                        <a href="#Environment">Environment</a>
                                         <br />
                                     </div>
                                 </div>

@@ -77,13 +77,13 @@ class ProfilePage extends Component {
                                         <br />
                                         <a href="instagram.com">Instagram Profile</a>
                                         <p>INTERESTS</p>
-                                        <a href="">Sports</a>
+                                        <a href="sports.com">Sports</a>
                                         <br />
-                                        <a href="">Science</a>
+                                        <a href="science.com">Science</a>
                                         <br />
-                                        <a href="">Politics</a>
+                                        <a href="politics.com">Politics</a>
                                         <br />
-                                        <a href="">Environment</a>
+                                        <a href="Environment.com">Environment</a>
                                         <br />
                                     </div>
                                 </div>

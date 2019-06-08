@@ -4,3 +4,4 @@ node_modules/
 /config/*
 /scripts/*
 /src/helpers/fake_backend.js
+/build

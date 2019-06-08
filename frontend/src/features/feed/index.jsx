@@ -1,25 +1,26 @@
 import React, {Component} from 'react';
 import FeedItem from '../../components/FeedItem';
 import {feed} from '../../fakedata/feed';
-import {getDay} from "../../utils/date";
+import {getDay} from '../../utils/date';
 
 class Feed extends Component {
-    render() {
+    render () {
+        const dataItems = feed.map(
+            (datePackage) => {
+                return (
+                    <div key={datePackage.date}>
+                        <p className="text-center">{getDay(datePackage.date)}</p>
+                        {datePackage.events.map(
+                            (item) => <FeedItem key={item.title} {...item}/>
 
-    const dataItems = feed.map(
-        datePackage =>(
-            <div>
-            <p className="text-center">{getDay(datePackage.date)}</p>
-            {datePackage.events.map(
-                item=>(
-                <FeedItem {...item}/>
-        ))}
-            </div>
-        )
-    );
+                        )}
+                    </div>
+                );
+            }
 
+        );
 
-    return (
+        return (
 
             <div className="align-content-lg-center">
                 {dataItems}

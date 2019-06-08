@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
 import {Switch} from 'react-router-dom';
 
-import WelcomeLayoutRoute from "../../components/WelcomeLayout";
+import WelcomeLayoutRoute from '../../components/WelcomeLayout';
 
 import {Login} from './Login';
 import {Register} from './Register';
-import Landing from "./Welcome";
+import Landing from './Welcome';
 
 import * as paths from './paths';
 
-
 class WelcomeEntrance extends Component {
-    render() {
+    render () {
         return (
             <Switch>
                 <WelcomeLayoutRoute

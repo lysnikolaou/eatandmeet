@@ -1,0 +1,6 @@
+node_modules/
+**/*.html
+.idea
+/config/*
+/scripts/*
+/src/helpers/fake_backend.js

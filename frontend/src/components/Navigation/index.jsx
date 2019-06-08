@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import './index.scss'
-import logo from "../../static/images/logo/logo.svg";
+import './index.scss';
+import logo from '../../static/images/logo/logo.svg';
 
 class Navigation extends Component {
-    render() {
+    render () {
         return (
             <nav className="navbar navbar-expand-sm navbar-light fixed-top bg-jungle">
                 <a className="navbar-brand" href="/"><img src={logo} alt="logo" className="logo"/></a>

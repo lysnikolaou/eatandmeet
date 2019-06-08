@@ -16,7 +16,7 @@ matrix:
         - node
       before_install: cd frontend/
       install:
-        - npm run install
+        - npm install
       script:
         - npm run test
         - npm run build

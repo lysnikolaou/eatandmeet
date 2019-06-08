@@ -27,8 +27,8 @@ class App extends React.Component {
                     <div className={`alert ${alert.type}`}>{alert.message}</div>
                 }
                 <Router history={history}>
-                    <Route exact path="/welcome" component={WelcomeEntrance}/>
-                    <PrivateRoute path="/" component={Entrance}/>
+                    <Route path="/welcome" component={WelcomeEntrance}/>
+                    <PrivateRoute  path="/" component={Entrance}/>
                 </Router>
             </div>
         );

@@ -3,26 +3,24 @@
 // for example when an alertConstants.SUCCESS action is dispatched,
 // the reducer updates the alert state to an object with type: 'alert-success' and message: action.message.
 
-import {alertConstants} from "../constants/alert.constants";
+import {alertConstants} from '../constants/alert.constants';
 
-export function alert(state = {}, action) {
+export const alert = (state = {}, action) => {
     switch (action.type) {
-        case alertConstants.SUCCESS:
-            return {
-                type: 'alert-success',
-                message: action.message
-            };
-        case alertConstants.ERROR:
-            return {
-                type: 'alert-danger',
-                message: action.message
-            };
-        case alertConstants.CLEAR:
-            return {};
-        default:
-            return state;
+    case alertConstants.SUCCESS:
+        return {
+            'type': 'alert-success',
+            'message': action.message,
+        };
+    case alertConstants.ERROR:
+        return {
+            'type': 'alert-danger',
+            'message': action.message,
+        };
+    case alertConstants.CLEAR:
+        return {};
+    default:
+        return state;
 
     }
-
-}
-
+};

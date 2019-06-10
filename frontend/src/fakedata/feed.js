@@ -7,7 +7,7 @@ export const feed = [
                 'date': '04/12/19',
                 'time': '2:00 PM',
                 'creator': 'Nitzan Nashi',
-                'title': 'Launch in The Mensa!',
+                'title': 'Lunch in The Mensa!',
                 'RVSP': {
                     'capacity': 10,
                     'attending': 8,

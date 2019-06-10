@@ -2,22 +2,17 @@ import React, {Component} from 'react';
 import {
     Switch,
     Redirect,
-    Route,
 } from 'react-router-dom';
 
-import MainLayoutRoute from "../../components/MainLayout";
-import WelcomeLayoutRoute from "../../components/WelcomeLayout";
+import MainLayoutRoute from '../../components/MainLayout';
 
-import WelcomeEntrance from '../landing/entrance';
-
-import Feed from "../feed"
-import ProfilePage from "../../components/UserProfile";
+import Feed from '../feed';
+import ProfilePage from '../../components/UserProfile';
 
 import * as paths from './paths';
 
-
 class Entrance extends Component {
-    render() {
+    render () {
         return (
             <Switch>
                 <MainLayoutRoute
@@ -31,7 +26,6 @@ class Entrance extends Component {
                 />
 
                 <Redirect to={paths.FEED} />
-
             </Switch>
         );
     }

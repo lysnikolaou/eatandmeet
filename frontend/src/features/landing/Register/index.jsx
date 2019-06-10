@@ -1,34 +1,34 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 import cx from 'classnames';
 
-import { userActions } from '../../../actions/user.actions';
+import {userActions} from '../../../actions/user.actions';
 
 import * as paths from '../paths';
-import * as Validator from "./validate";
+import * as Validator from './validate';
 
-import './index.scss'
-import Loader from '../../../components/Loader'
+import './index.scss';
+import Loader from '../../../components/Loader';
 
 class Register extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
 
         this.state = {
-            user: {
-                firstName: '',
-                lastName: '',
-                password: '',
-                email: '',
-                username: ''
+            'user': {
+                'firstName': '',
+                'lastName': '',
+                'password': '',
+                'email': '',
+                'username': '',
             },
-            submitted: false,
-            errors: {
-                emailError: '',
-                passwordError: '',
-                usernameError: ''
+            'submitted': false,
+            'errors': {
+                'emailError': '',
+                'passwordError': '',
+                'usernameError': '',
             },
         };
 
@@ -36,49 +36,53 @@ class Register extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
-        const { name, value } = event.target;
-        const { user } = this.state;
+    handleChange (event) {
+        const {
+            name, value,
+        } = event.target;
+        const {user} = this.state;
         this.setState({
-            user: {
+            'user': {
                 ...user,
-                [name]: value
-            }
+                [name]: value,
+            },
         });
     }
 
-    handleSubmit(event) {
+    handleSubmit (event) {
         event.preventDefault();
 
-        this.setState({ submitted: true });
-        const { user } = this.state;
-        const { dispatch } = this.props;
-        let passwordError = Validator.ValidatePassword(user.password);
-        let emailError = Validator.ValidateEmail(user.email);
-        let usernameError = Validator.ValidateUsername(user.username);
+        this.setState({'submitted': true});
+        const {user} = this.state;
+        const {dispatch} = this.props;
+        const passwordError = Validator.validatePassword(user.password);
+        const emailError = Validator.validateEmail(user.email);
+        const usernameError = Validator.validateUsername(user.username);
         this.setState({
-            errors: {
-                emailError: emailError,
-                passwordError: passwordError,
-                usernameError: usernameError
-            }
+            'errors': {
+                'emailError': emailError,
+                'passwordError': passwordError,
+                'usernameError': usernameError,
+            },
         });
         if (user.firstName && user.lastName && !emailError && !passwordError && !usernameError) {
             dispatch(userActions.register(user));
         }
     }
 
-    render() {
-        const { registering  } = this.props;
-        const { user, submitted, errors } = this.state;
+    render () {
+        const {registering} = this.props;
+        const {
+            user, submitted, errors,
+        } = this.state;
         return (
             <div className="center container-fluid">
                 <div className="text-center mb-4">
                     <h2>Register</h2>
                 </div>
                 <div className="row">
-                    <form name="form" className={"center"} onSubmit={this.handleSubmit}>
-                        <div className='form-row'>
+                    <form name="form" className={'center'} onSubmit={this.handleSubmit}>
+                        <div className="form-row">
 
                             {/* First Name */}
                             <div className={cx('form-group', 'col-md-6', submitted && !user.firstName && 'has-error')}>
@@ -119,7 +123,7 @@ class Register extends React.Component {
                             </div>
                         </div>
 
-                        <div className='form-row'>
+                        <div className="form-row">
 
                             {/* Username Name */}
                             <div className={cx('form-group', 'col-md-6', submitted && !user.username && 'has-error')}>
@@ -179,7 +183,6 @@ class Register extends React.Component {
                             }
                         </div>
 
-
                         <div className="form-row">
                             <div className="form-group center">
                                 <button className="btn btn-jungle">
@@ -201,12 +204,12 @@ class Register extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    const { registering } = state.registration;
+const mapStateToProps = (state) => {
+    const {registering} = state.registration;
     return {
-        registering
+        registering,
     };
-}
+};
 
 const connectedRegisterPage = connect(mapStateToProps)(Register);
-export { connectedRegisterPage as Register};
+export {connectedRegisterPage as Register};

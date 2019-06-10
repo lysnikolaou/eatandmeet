@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 import * as paths from '../paths';
 
 class Landing extends Component {
-    render() {
+    render () {
         return (
             <div className="container-fluid">
                 <div className="text-center">

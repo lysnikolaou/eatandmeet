@@ -93,7 +93,7 @@ const register = (user) => {
                 () => {
                     dispatch(success());
                     dispatch(alertActions.success('Registration successful'));
-                    history.push('welcome/login');
+                    history.push('/welcome/login');
                 },
                 (error) => {
                     dispatch(failure(error.toString()));

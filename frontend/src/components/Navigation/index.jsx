@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
 import './index.scss';
 import logo from '../../static/images/logo/logo.svg';
+import {Link} from 'react-router-dom';
+import { userActions } from '../../actions/user.actions';
 
 class Navigation extends Component {
+
+    handleLogout(id) {
+        console.log("im here!!:D");
+        this.props.dispatch(userActions.logout(id));
+    }
+
     render () {
         return (
             <nav className="navbar navbar-expand-sm navbar-light fixed-top bg-jungle">
@@ -38,6 +46,7 @@ class Navigation extends Component {
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
+                    <Link className="nav-link" onClick={this.handleLogout} to={'/welcome'}> Logout</Link>
                 </div>
             </nav>
         );

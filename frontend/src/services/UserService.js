@@ -2,6 +2,7 @@ import config from '../config/config';
 import {authHeader} from '../helpers/auth-header';
 
 const logout = () => {
+    console.log('im here2');
     // remove user from local storage to log user out
     localStorage.removeItem('user');
 };

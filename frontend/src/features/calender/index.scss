@@ -1,11 +1,11 @@
 @import "../../index.scss";
 
 .calender-container {
-  top: 7.4rem;
+  top: 7rem;
 }
 
 .react-calendar__tile--active {
-  background: $bg-jungle;
+  background: $color-jungle !important;
 }
 
 .react-calendar {

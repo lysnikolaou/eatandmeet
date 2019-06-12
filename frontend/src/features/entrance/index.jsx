@@ -6,7 +6,7 @@ import {
 
 import MainLayoutRoute from '../../components/MainLayout';
 
-import Feed from '../feed';
+import {Feed} from '../feed';
 import ProfilePage from '../../components/UserProfile';
 
 import * as paths from './paths';
@@ -23,6 +23,15 @@ class Entrance extends Component {
                 <MainLayoutRoute
                     path={paths.PROFILE}
                     component={ProfilePage}
+                />
+
+                <MainLayoutRoute
+                    path={`${paths.FEED_DAY}/:year/:month/:day`}
+                    component={Feed}
+                />
+
+                <MainLayoutRoute
+                    path={`${paths.EVENT}/:id`}
                 />
 
                 <Redirect to={paths.FEED} />

@@ -5,21 +5,45 @@
     "extends": ["@nashin1992"],
     "rules": {
         "react/prop-types": "off",
-        "keyword-spacing": ["error", {
-            "before": true,
-            "after": true,
-            "overrides": {
-                "return": {"after": true},
-                "throw": {"after": true},
-                "case": {"after": true}
+        "keyword-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true,
+                "overrides": {
+                    "return": {
+                        "after": true
+                    },
+                    "throw": {
+                        "after": true
+                    },
+                    "case": {
+                        "after": true
+                    }
+                }
             }
-        }],
-        "no-extra-parens": ["off", "all", {
-            "conditionalAssign": true,
-            "nestedBinaryExpressions": false,
-            "returnAssign": false,
-            "ignoreJSX": "all", /** Delegate to eslint-plugin-react */
-            "enforceForArrowConditionals": false
-        }]
+        ],
+        "no-extra-parens": [
+            "off",
+            "all",
+            {
+                "conditionalAssign": true,
+                "nestedBinaryExpressions": false,
+                "returnAssign": false,
+                "ignoreJSX": "all",
+                /** Delegate to eslint-plugin-react */
+                "enforceForArrowConditionals": false
+            }
+        ],
+        "quote-props": [
+            "error",
+            "as-needed",
+            {
+                "keywords": false,
+                "unnecessary": true,
+                "numbers": false
+            }
+        ],
+        "indent": ["error", 4, { "SwitchCase": 1 }]
     }
 }

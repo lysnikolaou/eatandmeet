@@ -9,7 +9,7 @@ const MainLayout = ({children}) => <div className="bg-gray fill container-fluid 
     {children}
 </div>;
 const MainLayoutRoute = ({
-    'component': Component, ...rest
+    component: Component, ...rest
 }) => {
     return (
         <Route {...rest} render={(matchProps) => {

@@ -1,8 +1,21 @@
 import React, {Component} from 'react';
-import './index.scss';
 import logo from '../../static/images/logo/logo.svg';
+import {Link} from 'react-router-dom';
+import {userActions} from '../../actions/user.actions';
+import {connect} from 'react-redux';
+
+import './index.scss';
 
 class Navigation extends Component {
+    constructor (props) {
+        super(props);
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+
+    handleLogout () {
+        this.props.dispatch(userActions.logout(this.props.user.id));
+    }
+
     render () {
         return (
             <nav className="navbar navbar-expand-sm navbar-light fixed-top bg-jungle">
@@ -38,10 +51,20 @@ class Navigation extends Component {
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
+                    <Link className="nav-link" onClick={this.handleLogout} to={'/welcome'}> Logout</Link>
                 </div>
             </nav>
         );
     }
 }
 
-export default Navigation;
+const mapStateToProps = (state) => {
+    const {authentication} = state;
+    const {user} = authentication;
+    return {
+        user,
+    };
+};
+
+const connectedHomePage = connect(mapStateToProps)(Navigation);
+export {connectedHomePage as Navigation};

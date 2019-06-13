@@ -12,19 +12,14 @@ class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
+        read_only_fields = ('groups', 'user_permissions')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        email = validated_data['email'] if 'email' in validated_data else ''
-        first_name = validated_data['first_name'] if 'first_name' in validated_data else ''
-        last_name = validated_data['last_name'] if 'last_name' in validated_data else ''
-        user = User(
-            username=validated_data['username'],
-            email=email,
-            first_name=first_name,
-            last_name=last_name
-        )
-        user.set_password(validated_data['password'])
+        password = validated_data['password']
+        del validated_data['password']
+        user = User(**validated_data)
+        user.set_password(password)
         user.save()
         return user
 
@@ -45,3 +40,9 @@ class UserUpdateSerializer(serializers.ModelSerializer):
             'username': {'required': False},
             'password': {'required': False, 'write_only': True}
         }
+    
+    def update(self, instance, validated_data):
+        if 'password' in validated_data:
+            instance.set_password(validated_data['password'])
+            del validated_data['password']
+        return super().update(instance, validated_data)

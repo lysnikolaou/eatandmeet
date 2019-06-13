@@ -3,7 +3,7 @@ from rest_framework import generics, permissions
 
 from .authentication import EmailAuthentication
 from .models import User
-from .permissions import IsSelfOrReadOnly
+from .permissions import IsSelf
 from .serializers import UserCreateSerializer, UserUpdateSerializer
 
 
@@ -32,7 +32,7 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     Delete the user instance.
     """
     queryset = User.objects.all()
-    permission_classes = (IsSelfOrReadOnly,)
+    permission_classes = (IsSelf,)
     serializer_class = UserUpdateSerializer
 
 

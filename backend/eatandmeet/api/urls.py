@@ -8,7 +8,7 @@ router = routers.SimpleRouter()
 router.register('events', EventViewSet)
 
 event_router = routers.NestedSimpleRouter(router, 'events', lookup = 'event')
-event_router.register('comments',CommentViewSet, base_name='event-comments')
+event_router.register('comments', CommentViewSet, base_name='event-comments')
 
 urlpatterns = [
     path('', include(router.urls)),

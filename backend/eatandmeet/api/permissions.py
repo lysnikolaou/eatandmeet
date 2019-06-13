@@ -9,10 +9,8 @@ class EventPermissions(permissions.IsAuthenticated):
                 or request.user == obj.event_creator)
 
 
-class CommentPermissions(permissions.BasePermission):
+class CommentPermissions(permissions.IsAuthenticated):
     def has_object_permission(self, request, view, obj):
-        print(request.user)
-        print(obj)
-        return (request.user in obj.event.event_members.all()
-                or request.user in obj.event.event_admins.all()
-                or request.user == obj.event.event_creator)
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        return request.user == obj.user

@@ -18,6 +18,17 @@ class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = (CommentSerializer)
     permission_classes = (CommentPermissions,)
 
+    def create(self, request, *args, **kwargs):
+        event = Event.objects.get(id=self.kwargs['event_pk'])
+        if (not request.user == event.event_creator
+            and request.user not in event.event_admins.all()
+            and request.user not in event.event_members.all()):
+            return response.Response(
+                {'detail': 'Not authorized'},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+        return super().create(request, *args, **kwargs)
+
     def perform_create(self, serializer):
         serializer.save(event=Event.objects.get(id=self.kwargs['event_pk']), user=self.request.user)
 

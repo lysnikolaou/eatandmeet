@@ -9,6 +9,7 @@ from ..models import User
 class TestEditUser(APITestCase):
     @pytest.mark.django_db
     def setUp(self):
+        # Create User
         self.user = User.objects.create_user(
             username='lys',
             password='random',
@@ -16,10 +17,22 @@ class TestEditUser(APITestCase):
             first_name='Lys',
             last_name='Nik'
         )
+        # Create URL
         self.url = reverse('user-detail', args=[self.user.pk])
 
+        # Login User
+        url = reverse('knox_login')
+        data = {
+            'email': 'lys@gmail.com',
+            'password': 'random'
+        }
+        response = self.client.post(url, data=data)
+        self.token = response.json()['token']
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+
+
     @pytest.mark.django_db
-    def test_edit_user_success(self):
+    def test_edit_user_success_one_field(self):
         data = {
             'username': 'lysn'
         }
@@ -29,7 +42,7 @@ class TestEditUser(APITestCase):
         assert response_data['username'] == data['username']
 
     @pytest.mark.django_db
-    def test_edit_user_success(self):
+    def test_edit_user_success_multiple_fields(self):
         data = {
             'username': 'lysnik',
             'email': 'lysnik@gmail.com'
@@ -57,3 +70,19 @@ class TestEditUser(APITestCase):
         response = self.client.put(self.url, data=data)
         response_data = response.json()
         assert response_data['is_active'] == True
+
+    def test_delete_user_failure_no_credentials(self):
+        data = {
+            'username': 'lysn'
+        }
+        self.client.credentials()
+        response = self.client.put(self.url, data=data)
+        assert response.status_code == status.HTTP_401_UNAUTHORIZED
+
+    def test_delete_user_failure_wrong_credentials(self):
+        data = {
+            'username': 'lysn'
+        }
+        self.client.credentials(HTTP_AUTHORIZATION='Token wrongtoken')
+        response = self.client.put(self.url, data=data)
+        assert response.status_code == status.HTTP_401_UNAUTHORIZED

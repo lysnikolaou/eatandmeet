@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'multiselectfield',
     'rest_framework',
     'rest_framework_extensions',
-    
+    'knox',
     'api',
-    'authentication'
+    'authentication',
 ]
 
 MIDDLEWARE = [
@@ -105,6 +105,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Django Rest Framework Settings
+# https://www.django-rest-framework.org
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+}
 
 
 # Internationalization

@@ -1,0 +1,25 @@
+{
+    "env": {
+        "es6": true
+    },
+    "extends": ["@nashin1992"],
+    "rules": {
+        "react/prop-types": "off",
+        "keyword-spacing": ["error", {
+            "before": true,
+            "after": true,
+            "overrides": {
+                "return": {"after": true},
+                "throw": {"after": true},
+                "case": {"after": true}
+            }
+        }],
+        "no-extra-parens": ["off", "all", {
+            "conditionalAssign": true,
+            "nestedBinaryExpressions": false,
+            "returnAssign": false,
+            "ignoreJSX": "all", /** Delegate to eslint-plugin-react */
+            "enforceForArrowConditionals": false
+        }]
+    }
+}

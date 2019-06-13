@@ -6,13 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-
-### Changed
-
-### Removed
-
-
-
-## [0.1.0] - 21-05-2019
-### Added
-- React-Framework via Create-React-App [#10](https://github.com/lysnikolaou/eatandmeet/issues/10)
+- [FE-00](https://github.com/lysnikolaou/eatandmeet/issues/10) React-Framework via Create-React-App
+- [FE-01](https://github.com/lysnikolaou/eatandmeet/issues/5) Landing - Login - Registration Page
+- [FE-04](https://github.com/lysnikolaou/eatandmeet/issues/8) User Profile Page
+- [FE-11](https://github.com/lysnikolaou/eatandmeet/issues/17) Events Feed
+- [FE-17](https://github.com/lysnikolaou/eatandmeet/issues/44) Add ESLint
+- [FE-19](https://github.com/lysnikolaou/eatandmeet/issues/50) Add Dependabot

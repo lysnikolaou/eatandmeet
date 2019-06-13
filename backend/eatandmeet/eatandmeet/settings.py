@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'multiselectfield',
     'rest_framework',
     'rest_framework_extensions',
+    
     'api',
     'authentication'
 ]

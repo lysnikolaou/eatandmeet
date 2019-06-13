@@ -10,6 +10,7 @@ class EventViewSet(viewsets.ModelViewSet):
     serializer_class = (EventSerializer)
 
 class CommentViewSet(viewsets.ModelViewSet):
-    queryset = Comment.objects.all()
+    def get_queryset(self):
+        return Comment.objects.filter(event=self.kwargs['event_pk'])
     serializer_class = (CommentSerializer)
 

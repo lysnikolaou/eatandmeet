@@ -3,10 +3,9 @@ import FeedItem from '../../components/FeedItem';
 import {feeddata} from '../../fakedata/feed';
 import {getDay} from '../../utils/date';
 import {FeedList} from './Components/VisibileFeed';
-import {FeedCalendar} from '../calender';
+import {FeedCalendar} from '../../components/Calender';
 import * as cx from 'classnames';
 
-import './index.scss';
 import {connect} from "react-redux";
 import {userActions} from "../../actions/user.actions";
 
@@ -30,20 +29,18 @@ class Feed extends Component {
     }
 
     componentDidMount () {
-        console.log(this.props);
-        if (this.props.match) {
+        if (this.props.match.day) {
             const urlDate = new Date(`${this.props.match.params.year}/${this.props.match.params.month}/${this.props.match.params.day}`);
             this.setState({
                 date: urlDate,
             });
-            console.log(urlDate);
         }
         this.props.dispatch(actions.fetchProducts());
     }
 
     render () {
         let urlDate ='';
-        if (this.props.match) urlDate = new Date(`${this.props.match.params.year}/${this.props.match.params.month}/${this.props.match.params.day}`);
+        if (this.props.match.day) urlDate = new Date(`${this.props.match.params.year}/${this.props.match.params.month}/${this.props.match.params.day}`);
         else {
             urlDate = new Date();
         }

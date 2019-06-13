@@ -48,12 +48,12 @@ class FeedItem extends Component {
                         </li>
                         <li className="list-group-item">
                             <div className="row">
-                                <div className={cx('gray-text', props.RVSP.percentage >= 0.8 && 'col-md-10 col-10')}>
+                                <div className={cx('gray-text', props.RVSP.percentage >= 0.8 && 'col-sm-9 col-10')}>
                                     {props.RVSP.attending} Members going / {props.RVSP.capacity} slots in Total
                                 </div>
                                 {
                                     props.RVSP.percentage >= 0.8 &&
-                                        <div className="col text-danger">
+                                        <div className="col-sm-3 text-danger">
                                             {props.RVSP.available} slots left!
                                         </div>
                                 }

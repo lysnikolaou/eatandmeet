@@ -3,13 +3,10 @@ import Calendar from 'react-calendar';
 import {connect} from 'react-redux';
 import './index.scss';
 
-import * as calenderActions from '../feed/calender/actions';
-import {feeddata} from "../../fakedata/feed";
-import * as feedActions from "../feed/actions";
-import * as paths from '../entrance/paths';
+import * as calenderActions from '../../features/feed/calender/actions';
+import * as paths from '../../features/entrance/paths';
 
-import { Link } from 'react-router-dom';
-import {history} from "../../helpers/history";
+import {history} from '../../helpers/history';
 
 class FeedCalendar extends Component {
     constructor (props) {
@@ -23,12 +20,11 @@ class FeedCalendar extends Component {
     }
 
     componentDidMount () {
-        if (this.props) {
+        if (this.props && this.props.day.getDate() !== new Date().getDate()) {
             this.setState({
                 date: this.props.day,
             });
             this.props.dispatch(calenderActions.filterDate(this.props.day));
-
         }
     }
 

@@ -25,6 +25,7 @@ export function configureFakeBackend () {
                             'email': user.email,
                             'firstName': user.firstName,
                             'lastName': user.lastName,
+                            'username': user.username,
                             'token': 'fake-jwt-token',
                         };
                         resolve({

@@ -3,7 +3,7 @@ import FeedItem from '../../../components/FeedItem';
 import {getDay} from '../../../utils/date';
 
 const FeedList = ({feeds}) => (
-    <ul>
+    <div>
         {feeds.map((day) => {
             return (
                 <div key={day.date} >
@@ -15,7 +15,7 @@ const FeedList = ({feeds}) => (
             );
         })
         }
-    </ul>
+    </div>
 );
 
 export default FeedList;

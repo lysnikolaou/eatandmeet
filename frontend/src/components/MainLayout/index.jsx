@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 
-import Navigation from '../../components/Navigation';
+import {Navigation} from '../../components/Navigation';
 
 import './index.scss';
 
@@ -15,7 +15,7 @@ const MainLayoutRoute = ({
         <Route {...rest} render={(matchProps) => {
             return (
                 <div>
-                    <Navigation/>
+                    <Navigation {...matchProps}/>
                     <MainLayout>
                         <Component {...matchProps} />
                     </MainLayout>

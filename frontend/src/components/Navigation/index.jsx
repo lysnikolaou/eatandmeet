@@ -1,14 +1,21 @@
 import React, {Component} from 'react';
-import './index.scss';
 import logo from '../../static/images/logo/logo.svg';
 import {Link} from 'react-router-dom';
-import { userActions } from '../../actions/user.actions';
+import {userActions} from '../../actions/user.actions';
+import {connect} from 'react-redux';
+
+import './index.scss';
 
 class Navigation extends Component {
 
-    handleLogout(id) {
-        console.log("im here!!:D");
-        this.props.dispatch(userActions.logout(id));
+    constructor (props) {
+        super(props);
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+
+    handleLogout () {
+        console.log(this.props);
+        this.props.dispatch(userActions.logout(this.props.user.id));
     }
 
     render () {
@@ -53,4 +60,13 @@ class Navigation extends Component {
     }
 }
 
-export default Navigation;
+const mapStateToProps = (state) => {
+    const {authentication} = state;
+    const {user} = authentication;
+    return {
+        user,
+    };
+};
+
+const connectedHomePage = connect(mapStateToProps)(Navigation);
+export {connectedHomePage as Navigation};

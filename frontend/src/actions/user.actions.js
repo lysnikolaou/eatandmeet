@@ -21,6 +21,8 @@ import {userService} from '../services/user.service';
 import {alertActions} from '../actions/alert.actions';
 import {history} from '../helpers/history';
 
+import * as paths from '../features/entrance/paths';
+
 // Login Function
 const login = (email, password) => {
     const request = (user) => {
@@ -49,7 +51,7 @@ const login = (email, password) => {
             .then(
                 (user) => {
                     dispatch(success(user));
-                    history.push('/');
+                    history.push(paths.FEED);
                 },
                 (error) => {
                     dispatch(failure(error.toString()));

@@ -31,7 +31,7 @@ class App extends React.Component {
                 }
                 <Router history={history}>
                     <Route path="/welcome" component={WelcomeEntrance}/>
-                    <PrivateRoute path="/" component={Entrance}/>
+                    <PrivateRoute path="/feed" component={Entrance}/>
                 </Router>
             </div>
         );

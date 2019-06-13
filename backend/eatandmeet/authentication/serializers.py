@@ -45,3 +45,9 @@ class UserUpdateSerializer(serializers.ModelSerializer):
             'username': {'required': False},
             'password': {'required': False, 'write_only': True}
         }
+    
+    def update(self, instance, validated_data):
+        if 'password' in validated_data:
+            instance.set_password(validated_data['password'])
+            del validated_data['password']
+        return super().update(instance, validated_data)

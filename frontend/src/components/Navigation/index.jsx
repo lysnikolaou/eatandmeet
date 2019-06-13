@@ -7,14 +7,12 @@ import {connect} from 'react-redux';
 import './index.scss';
 
 class Navigation extends Component {
-
     constructor (props) {
         super(props);
         this.handleLogout = this.handleLogout.bind(this);
     }
 
     handleLogout () {
-        console.log(this.props);
         this.props.dispatch(userActions.logout(this.props.user.id));
     }
 

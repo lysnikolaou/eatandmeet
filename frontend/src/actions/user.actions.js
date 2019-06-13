@@ -63,7 +63,6 @@ const login = (email, password) => {
 
 // Logout Function
 const logout = () => {
-    console.log('im here');
     userService.logout();
     return {'type': userConstants.LOGOUT};
 };

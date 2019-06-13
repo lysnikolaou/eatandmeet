@@ -26,7 +26,7 @@ class Entrance extends Component {
                 />
 
                 <MainLayoutRoute
-                    path={`${paths.FEED_DAY}/:year/:month/:day`}
+                    path={`${paths.FEED}/:year/:month/:day`}
                     component={Feed}
                 />
 

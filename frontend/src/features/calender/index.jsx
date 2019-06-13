@@ -23,22 +23,25 @@ class FeedCalendar extends Component {
     }
 
     componentDidMount () {
-        if (this.props.day) {
+        if (this.props) {
             this.setState({
-                day: this.props.day,
+                date: this.props.day,
             });
+            this.props.dispatch(calenderActions.filterDate(this.props.day));
+
         }
     }
 
     onChange (date) {
         const {dispatch} = this.props;
         if (this.state.date && date.getTime() === this.state.date.getTime()) {
-            this.setState({date: ''});
+            this.setState({date: new Date()});
             dispatch(calenderActions.clear());
+            history.push(paths.FEED);
         } else {
             this.setState({date});
             dispatch(calenderActions.filterDate(date));
-            history.push(`${paths.FEED_DAY}/${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`);
+            history.push(`${paths.FEED}/${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`);
         }
     }
 

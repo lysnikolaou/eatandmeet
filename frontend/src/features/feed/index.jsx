@@ -17,7 +17,7 @@ class Feed extends Component {
         super(props);
 
         this.state = {
-            date: new Date(),
+            date: '',
         };
     }
 
@@ -30,17 +30,29 @@ class Feed extends Component {
     }
 
     componentDidMount () {
+        console.log(this.props);
+        if (this.props.match) {
+            const urlDate = new Date(`${this.props.match.params.year}/${this.props.match.params.month}/${this.props.match.params.day}`);
+            this.setState({
+                date: urlDate,
+            });
+            console.log(urlDate);
+        }
         this.props.dispatch(actions.fetchProducts());
     }
 
     render () {
+        let urlDate ='';
+        if (this.props.match) urlDate = new Date(`${this.props.match.params.year}/${this.props.match.params.month}/${this.props.match.params.day}`);
+        else {
+            urlDate = new Date();
+        }
         return (
             <div className="row">
                 <div className={cx('col-xl-2', 'col-lg-3', 'offset-xl-1', 'col-0')}>
-                    <FeedCalendar day={this.state.date} />
+                    <FeedCalendar day={urlDate} />
                 </div>
                 <div className={cx('col-xl-6', 'col-lg-7', 'col-12')}>
-                    <p>{this.state.date.toString()}</p>
                     <FeedList feeds={this.state.feed} />
                 </div>
             </div>

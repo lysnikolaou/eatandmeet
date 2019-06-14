@@ -32,7 +32,7 @@ class Navigation extends Component {
                             <a className="nav-link" href={paths.FEED}>Home <span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link" href={paths.PROFILE} style={{textTransform: "capitalize"}}>{this.props.user.firstName} <span className="sr-only">(current)</span></a>
+                            <a className="nav-link" href={paths.PROFILE} style={{textTransform: 'capitalize'}}>{this.props.user.firstName} <span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/">Link</a>
@@ -52,11 +52,11 @@ class Navigation extends Component {
                             <a className="nav-link disabled" href="/">Disabled</a>
                         </li>
                     </ul>
-                    <form className="form-inline my-2 my-lg-0">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                    <Link className="nav-link" onClick={this.handleLogout} to={'/welcome'}> Logout</Link>
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <Link className="nav-link " onClick={this.handleLogout} to={paths.WELCOME}> Logout</Link>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         );

@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 import {connect} from 'react-redux';
 import './index.scss';
 
-import * as calenderActions from '../../features/feed/calender/actions';
+import * as calenderActions from './actions';
 import * as paths from '../../features/entrance/paths';
 
 import {history} from '../../helpers/history';

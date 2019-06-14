@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Route, Router,
+    Route, Router, Redirect, Switch,
 } from 'react-router-dom';
 import {connect} from 'react-redux';
 
@@ -30,9 +30,11 @@ class App extends React.Component {
                     <div className={`alert ${alert.type}`}>{alert.message}</div>
                 }
                 <Router history={history}>
-                    <Route path="/welcome" component={WelcomeEntrance}/>
-                    <PrivateRoute path="/feed" component={Entrance}/>
-                    <PrivateRoute path="/profile" component={Entrance}/>
+                    <Switch>
+                        <Route path="/welcome" component={WelcomeEntrance}/>
+                        <PrivateRoute path="/" component={Entrance}/>
+                        <PrivateRoute path="/profile" component={Entrance}/>
+                    </Switch>
 
                 </Router>
             </div>

@@ -19,8 +19,10 @@ PLACE_CHOICES = [
 
 class Event(models.Model):
     title = models.CharField(max_length=32)
-    Date = models.DateTimeField()
-    users = models.ManyToManyField(User)
+    date = models.DateTimeField()
+    event_creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='event_creator', null=True)
+    event_admins = models.ManyToManyField(User, related_name='event_admins', blank=True)
+    event_members = models.ManyToManyField(User, related_name='event_members', blank=True)
     topics = MultiSelectField(choices=TOPIC_CHOICES)
     places = models.CharField(max_length=11, choices =PLACE_CHOICES, default ='Hauptmensa' )
 
@@ -31,7 +33,7 @@ class Event(models.Model):
 class Comment(models.Model):
     event = models.ForeignKey('Event', on_delete=models.CASCADE)
     user = models.ForeignKey('authentication.User', on_delete=models.CASCADE)
-    Date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)
     text = models.CharField(max_length=600, default='SOME STRING')
 
     def __str__(self):

@@ -33,12 +33,6 @@ class Entrance extends Component {
                 />
 
                 <MainLayoutRoute
-                    path={`${paths.EVENT}/:id`}
-                    component={EventPage}
-
-                />
-
-                <MainLayoutRoute
                     path={paths.LOADER}
                     component={LoadingComponent}
                 />

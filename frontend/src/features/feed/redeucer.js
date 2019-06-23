@@ -18,7 +18,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                items: action.payload.products
+                items: action.payload.products,
             };
         case actionTypes.FETCH_FEED_FAILURE:
             return {

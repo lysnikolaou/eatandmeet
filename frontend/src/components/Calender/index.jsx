@@ -21,7 +21,6 @@ class FeedCalendar extends Component {
 
     componentDidMount () {
         if (this.props && this.props.day.getDate() !== new Date().getDate()) {
-            console.log(this.props);
             this.setState({
                 date: this.props.day,
             });

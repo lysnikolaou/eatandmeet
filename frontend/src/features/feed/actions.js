@@ -5,12 +5,12 @@ export const fetchFeedBegin = () => ({
     type: actionType.FETCH_FEED_BEGIN,
 });
 
-export const fetchFeedSuccess = products => ({
+export const fetchFeedSuccess = (products) => ({
     type: actionType.FETCH_FEED_SUCCESS,
     payload: {products},
 });
 
-export const fetchFeedFailure = error => ({
+export const fetchFeedFailure = (error) => ({
     type: actionType.FETCH_FEED_FAILURE,
     payload: {error},
 });
@@ -24,7 +24,7 @@ export const handleErrors = (response) => {
 };
 
 export const fetchProducts = () => {
-    return dispatch => {
+    return (dispatch) => {
         dispatch(fetchFeedBegin());
         dispatch(fetchFeedSuccess(feeddata));
         return feeddata;

@@ -10,7 +10,6 @@ import {Feed} from '../feed';
 import {ProfilePage} from '../../components/UserProfile';
 
 import * as paths from './paths';
-import EventPage from '../../components/EventPage';
 import LoadingComponent from '../../components/loadingComponent';
 
 class Entrance extends Component {

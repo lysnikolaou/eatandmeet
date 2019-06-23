@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Route, Router, Redirect, Switch,
+    Route, Router, Switch,
 } from 'react-router-dom';
 import {connect} from 'react-redux';
 

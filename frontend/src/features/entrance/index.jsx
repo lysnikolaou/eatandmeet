@@ -7,7 +7,7 @@ import {
 import MainLayoutRoute from '../../components/MainLayout';
 
 import {Feed} from '../feed';
-import ProfilePage from '../../components/UserProfile';
+import {ProfilePage} from '../../components/UserProfile';
 
 import * as paths from './paths';
 

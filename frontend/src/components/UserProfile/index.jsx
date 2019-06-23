@@ -1,8 +1,20 @@
 import React, {Component} from 'react';
-import './index.css';
-
+import './index.scss';
+import {connect} from "react-redux";
+import Octicon, {
+    Person,
+} from '@githubprimer/octicons-react';
 class ProfilePage extends Component {
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            date: new Date(),
+        };
+    }
+
     render () {
+        const {user} = this.props;
         return (
             <div className="card">
                 <div className="card-body">
@@ -11,10 +23,11 @@ class ProfilePage extends Component {
                             <div className="row">
                                 <div className="col-md-4">
                                     <div className="profile-img">
-                                        <img
-                                            src="https://scontent-dus1-1.xx.fbcdn.net/v/t31.0-8/21273280_1869007506448034_8133580273270929214_o.jpg?_nc_cat=105&_nc_ht=scontent-dus1-1.xx&oh=b8cacb7402c7d2745280b584f48f30c7&oe=5D5DAADA"
-                                            alt=""
-                                        />
+                                        <Octicon icon={Person} size="big" className="profile-default"/>
+                                        {/*<img*/}
+                                        {/*    src="https://scontent-dus1-1.xx.fbcdn.net/v/t31.0-8/21273280_1869007506448034_8133580273270929214_o.jpg?_nc_cat=105&_nc_ht=scontent-dus1-1.xx&oh=b8cacb7402c7d2745280b584f48f30c7&oe=5D5DAADA"*/}
+                                        {/*    alt=""*/}
+                                        {/*/>*/}
                                         <div className="file btn btn-lg btn-primary">
                       Change Photo
                                             <input type="file" name="file" />
@@ -23,7 +36,7 @@ class ProfilePage extends Component {
                                 </div>
                                 <div className="col-md-6">
                                     <div className="profile-head">
-                                        <h5>Dimitris Prevezianos</h5>
+                                        <h5>{user.firstName}  {user.lastName}</h5>
                                         <h6>Web Developer and Designer</h6>
                                         <p className="proile-rating">
                       EVENTS : <span>5</span>
@@ -97,10 +110,10 @@ class ProfilePage extends Component {
                                         >
                                             <div className="row">
                                                 <div className="col-md-6">
-                                                    <label>User Id</label>
+                                                    <label>Username</label>
                                                 </div>
                                                 <div className="col-md-6">
-                                                    <p>dprev95</p>
+                                                    <p>{user.username}</p>
                                                 </div>
                                             </div>
                                             <div className="row">
@@ -108,7 +121,7 @@ class ProfilePage extends Component {
                                                     <label>Name</label>
                                                 </div>
                                                 <div className="col-md-6">
-                                                    <p>Dimitris Prevezianos</p>
+                                                    <p>{user.firstName}  {user.lastName}</p>
                                                 </div>
                                             </div>
                                             <div className="row">
@@ -116,7 +129,7 @@ class ProfilePage extends Component {
                                                     <label>Email</label>
                                                 </div>
                                                 <div className="col-md-6">
-                                                    <p>dimitrisxiii@gmail.com</p>
+                                                    <p>{user.email}</p>
                                                 </div>
                                             </div>
                                             <div className="row">
@@ -153,4 +166,13 @@ class ProfilePage extends Component {
     }
 }
 
-export default ProfilePage;
+const mapStateToProps = (state) => {
+    const {authentication} = state;
+    const {user} = authentication;
+    return {
+        user,
+    };
+};
+
+const connectedHomePage = connect(mapStateToProps)(ProfilePage);
+export {connectedHomePage as ProfilePage};

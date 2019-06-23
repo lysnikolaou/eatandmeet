@@ -10,6 +10,8 @@ import {Feed} from '../feed';
 import {ProfilePage} from '../../components/UserProfile';
 
 import * as paths from './paths';
+import EventPage from '../../components/EventPage';
+import LoadingComponent from "../../components/loadingComponent";
 
 class Entrance extends Component {
     render () {
@@ -32,6 +34,14 @@ class Entrance extends Component {
 
                 <MainLayoutRoute
                     path={`${paths.EVENT}/:id`}
+                    component={EventPage}
+
+                />
+
+                <MainLayoutRoute
+                    path={paths.LOADER}
+                    component={LoadingComponent}
+                    text="this is a demo"
                 />
 
                 <Redirect to={paths.FEED} />

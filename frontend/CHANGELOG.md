@@ -13,3 +13,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [FE-17](https://github.com/lysnikolaou/eatandmeet/issues/44) Add ESLint
 - [FE-19](https://github.com/lysnikolaou/eatandmeet/issues/50) Add Dependabot
 - [FE-20](https://github.com/lysnikolaou/eatandmeet/issues/57) Add Logout Button
+- [FE-21](https://github.com/lysnikolaou/eatandmeet/issues/64) Loading Indicator
+

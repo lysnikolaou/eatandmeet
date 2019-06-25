@@ -1,3 +1,5 @@
+@import "../../static/styles/index";
+
 .emp-profile {
   padding: 0;
   margin-top: 3%;
@@ -8,10 +10,30 @@
 .profile-img {
   text-align: center;
 }
-.profile-img img {
+.profile-default {
+  background: $color-gray-light;
   width: 70%;
   height: 100%;
+  box-shadow: 0 4px 6px -6px black;
+
+  -webkit-transition: margin 0.2s ease-out;
+  -moz-transition: margin 0.2s ease-out;
+  -o-transition: margin 0.2s ease-out;
+  transition: margin 0.2s ease-out;
 }
+
+.profile-img img {
+  background: $color-gray-light;
+  width: 70%;
+  height: 100%;
+  box-shadow: 0 4px 6px -6px black;
+
+  -webkit-transition: margin 0.2s ease-out;
+  -moz-transition: margin 0.2s ease-out;
+  -o-transition: margin 0.2s ease-out;
+  transition: margin 0.2s ease-out;
+}
+
 .profile-img .file {
   position: relative;
   overflow: hidden;

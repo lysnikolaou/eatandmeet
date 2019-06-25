@@ -14,7 +14,7 @@ const WelcomeLayout = ({children}) => <div className="bg-gray">
     </div>
 </div>;
 const WelcomeLayoutRoute = ({
-    'component': Component, ...rest
+    component: Component, ...rest
 }) => {
     return (
         <Route {...rest} render={(matchProps) => <WelcomeLayout>

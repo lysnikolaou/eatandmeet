@@ -17,9 +17,9 @@ class Login extends React.Component {
         this.props.dispatch(userActions.logout());
 
         this.state = {
-            'email': '',
-            'password': '',
-            'submitted': false,
+            email: '',
+            password: '',
+            submitted: false,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -36,7 +36,7 @@ class Login extends React.Component {
     handleSubmit (e) {
         e.preventDefault();
 
-        this.setState({'submitted': true});
+        this.setState({submitted: true});
         const {
             email, password,
         } = this.state;

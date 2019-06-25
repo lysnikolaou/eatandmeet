@@ -1,0 +1,23 @@
+@import "../../index";
+
+.calender-container {
+  top: 7rem;
+}
+
+.react-calendar__tile--active {
+  background: $color-jungle !important;
+}
+
+.react-calendar {
+  font-size: smaller;
+  position: sticky;
+  //width: 30rem;
+  border-radius: 10px;
+  border: solid 1px $color-jungle-dark;
+  box-shadow: 0 4px 6px -6px black;
+
+  -webkit-transition: margin 0.2s ease-out;
+  -moz-transition: margin 0.2s ease-out;
+  -o-transition: margin 0.2s ease-out;
+  transition: margin 0.2s ease-out;
+}

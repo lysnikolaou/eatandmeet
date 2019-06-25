@@ -27,24 +27,26 @@ import * as paths from '../features/entrance/paths';
 const login = (email, password) => {
     const request = (user) => {
         return {
-            'type': userConstants.LOGIN_REQUEST, user,
+            type: userConstants.LOGIN_REQUEST,
+            user,
         };
     };
 
     const success = (user) => {
         return {
-            'type': userConstants.LOGIN_SUCCESS, user,
+            type: userConstants.LOGIN_SUCCESS,
+            user,
         };
     };
 
     const failure = (error) => {
         return {
-            'type': userConstants.LOGIN_FAILURE, error,
+            type: userConstants.LOGIN_FAILURE,
+            error,
         };
     };
 
     return (dispatch) => {
-        // eslint-disable-next-line no-use-before-define
         dispatch(request({email}));
 
         userService.login(email, password)
@@ -64,26 +66,26 @@ const login = (email, password) => {
 // Logout Function
 const logout = () => {
     userService.logout();
-    return {'type': userConstants.LOGOUT};
+    return {type: userConstants.LOGOUT};
 };
 
 // Register
 const register = (user) => {
     const request = () => {
         return {
-            'type': userConstants.REGISTER_REQUEST, user,
+            type: userConstants.REGISTER_REQUEST, user,
         };
     };
 
     const success = () => {
         return {
-            'type': userConstants.REGISTER_SUCCESS, user,
+            type: userConstants.REGISTER_SUCCESS, user,
         };
     };
 
     const failure = (error) => {
         return {
-            'type': userConstants.REGISTER_FAILURE, error,
+            type: userConstants.REGISTER_FAILURE, error,
         };
     };
 
@@ -106,17 +108,17 @@ const register = (user) => {
 };
 
 const getAll = () => {
-    const request = () => { return {'type': userConstants.GETALL_REQUEST}; };
+    const request = () => { return {type: userConstants.GETALL_REQUEST}; };
 
     const success = (users) => {
         return {
-            'type': userConstants.GETALL_SUCCESS, users,
+            type: userConstants.GETALL_SUCCESS, users,
         };
     };
 
     const failure = (error) => {
         return {
-            'type': userConstants.GETALL_FAILURE, error,
+            type: userConstants.GETALL_FAILURE, error,
         };
     };
 
@@ -135,17 +137,17 @@ const getAll = () => {
 const _delete = (id) => {
     const request = () => {
         return {
-            'type': userConstants.DELETE_REQUEST, id,
+            type: userConstants.DELETE_REQUEST, id,
         };
     };
     const success = () => {
         return {
-            'type': userConstants.DELETE_SUCCESS, id,
+            type: userConstants.DELETE_SUCCESS, id,
         };
     };
     const failure = (error) => {
         return {
-            'type': userConstants.DELETE_FAILURE, id, error,
+            type: userConstants.DELETE_FAILURE, id, error,
         };
     };
 
@@ -165,5 +167,5 @@ export const userActions = {
     logout,
     register,
     getAll,
-    'delete': _delete,
+    delete: _delete,
 };

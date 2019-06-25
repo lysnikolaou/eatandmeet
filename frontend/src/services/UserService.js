@@ -26,9 +26,9 @@ const handleResponse = (response) => {
 
 const login = (username, password) => {
     const requestOptions = {
-        'method': 'POST',
-        'headers': {'Content-Type': 'application/json'},
-        'body': JSON.stringify({
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
             username, password,
         }),
     };
@@ -50,8 +50,8 @@ const login = (username, password) => {
 
 const getAll = () => {
     const requestOptions = {
-        'method': 'GET',
-        'headers': authHeader(),
+        method: 'GET',
+        headers: authHeader(),
     };
 
     return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);

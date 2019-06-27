@@ -17,18 +17,18 @@ class Register extends React.Component {
         super(props);
 
         this.state = {
-            'user': {
-                'firstName': '',
-                'lastName': '',
-                'password': '',
-                'email': '',
-                'username': '',
+            user: {
+                firstName: '',
+                lastName: '',
+                password: '',
+                email: '',
+                username: '',
             },
-            'submitted': false,
-            'errors': {
-                'emailError': '',
-                'passwordError': '',
-                'usernameError': '',
+            submitted: false,
+            errors: {
+                emailError: '',
+                passwordError: '',
+                usernameError: '',
             },
         };
 
@@ -42,7 +42,7 @@ class Register extends React.Component {
         } = event.target;
         const {user} = this.state;
         this.setState({
-            'user': {
+            user: {
                 ...user,
                 [name]: value,
             },
@@ -52,17 +52,17 @@ class Register extends React.Component {
     handleSubmit (event) {
         event.preventDefault();
 
-        this.setState({'submitted': true});
+        this.setState({submitted: true});
         const {user} = this.state;
         const {dispatch} = this.props;
         const passwordError = Validator.validatePassword(user.password);
         const emailError = Validator.validateEmail(user.email);
         const usernameError = Validator.validateUsername(user.username);
         this.setState({
-            'errors': {
-                'emailError': emailError,
-                'passwordError': passwordError,
-                'usernameError': usernameError,
+            errors: {
+                emailError,
+                passwordError,
+                usernameError,
             },
         });
         if (user.firstName && user.lastName && !emailError && !passwordError && !usernameError) {

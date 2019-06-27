@@ -9,13 +9,13 @@ import {
 } from 'react-router-dom';
 
 const PrivateRoute = ({
-    'component': Component, ...rest
+    component: Component, ...rest
 }) => <Route {...rest}
     /* eslint-disable-next-line no-confusing-arrow */
     render = {(props) => localStorage.getItem('user')
         ? <Component {...props} />
         : <Redirect to = {{
-            'pathname': '/welcome', 'state': {'from': props.location},
+            pathname: '/welcome', state: {from: props.location},
         }} />
     }
 />;

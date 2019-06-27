@@ -26,9 +26,9 @@ const handleResponse = (response) => {
 
 const login = (email, password) => {
     const requestOptions = {
-        'method': 'POST',
-        'headers': {'Content-Type': 'application/json'},
-        'body': JSON.stringify({
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
             email, password,
         }),
     };
@@ -45,8 +45,8 @@ const login = (email, password) => {
 
 const getAll = () => {
     const requestOptions = {
-        'method': 'GET',
-        'headers': authHeader(),
+        method: 'GET',
+        headers: authHeader(),
     };
 
     return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
@@ -54,8 +54,8 @@ const getAll = () => {
 
 const getById = (id) => {
     const requestOptions = {
-        'method': 'GET',
-        'headers': authHeader(),
+        method: 'GET',
+        headers: authHeader(),
     };
 
     return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
@@ -63,9 +63,9 @@ const getById = (id) => {
 
 const register = (user) => {
     const requestOptions = {
-        'method': 'POST',
-        'headers': {'Content-Type': 'application/json'},
-        'body': JSON.stringify(user),
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(user),
     };
 
     return fetch(`${config.apiUrl}/users/register`, requestOptions).then(handleResponse);
@@ -73,11 +73,11 @@ const register = (user) => {
 
 const update = (user) => {
     const requestOptions = {
-        'method': 'PUT',
-        'headers': {
+        method: 'PUT',
+        headers: {
             ...authHeader(), 'Content-Type': 'application/json',
         },
-        'body': JSON.stringify(user),
+        body: JSON.stringify(user),
     };
 
     return fetch(`${config.apiUrl}/users/${user.id}`, requestOptions).then(handleResponse);
@@ -86,8 +86,8 @@ const update = (user) => {
 // prefixed function name with underscore because delete is a reserved word in javascript
 const _delete = (id) => {
     const requestOptions = {
-        'method': 'DELETE',
-        'headers': authHeader(),
+        method: 'DELETE',
+        headers: authHeader(),
     };
 
     return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
@@ -100,5 +100,5 @@ export const userService = {
     getAll,
     getById,
     update,
-    'delete': _delete,
+    delete: _delete,
 };

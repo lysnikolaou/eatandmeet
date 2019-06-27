@@ -6,10 +6,11 @@ import {
 
 import MainLayoutRoute from '../../components/MainLayout';
 
-import Feed from '../feed';
-import ProfilePage from '../../components/UserProfile';
+import {Feed} from '../feed';
+import {ProfilePage} from '../../components/UserProfile';
 
 import * as paths from './paths';
+import LoadingComponent from '../../components/loadingComponent';
 
 class Entrance extends Component {
     render () {
@@ -23,6 +24,16 @@ class Entrance extends Component {
                 <MainLayoutRoute
                     path={paths.PROFILE}
                     component={ProfilePage}
+                />
+
+                <MainLayoutRoute
+                    path={`${paths.FEED}/:year/:month/:day`}
+                    component={Feed}
+                />
+
+                <MainLayoutRoute
+                    path={paths.LOADER}
+                    component={LoadingComponent}
                 />
 
                 <Redirect to={paths.FEED} />

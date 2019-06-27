@@ -7,13 +7,13 @@ import {userConstants} from '../constants/user.constatns';
 
 export const registration = (state = {}, action) => {
     switch (action.type) {
-    case userConstants.REGISTER_REQUEST:
-        return {'registration': true};
-    case userConstants.REGISTER_SUCCESS:
-        return {};
-    case userConstants.REGISTER_FAILURE:
-        return {};
-    default:
-        return state;
+        case userConstants.REGISTER_REQUEST:
+            return {registration: true};
+        case userConstants.REGISTER_SUCCESS:
+            return {};
+        case userConstants.REGISTER_FAILURE:
+            return {};
+        default:
+            return state;
     }
 };

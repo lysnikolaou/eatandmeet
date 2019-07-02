@@ -1,0 +1,35 @@
+@import "../../static/styles/index.scss";
+:root {
+  --bg-color: $bg-jungle;
+}
+
+.btn,
+.btn::after {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn {
+  outline: none;
+  --text-color: $bg-floral;
+  color: var(--text-color);
+  background: var(--bg-color);
+}
+
+
+.btn_jungle {
+  --bg-color: $bg-jungle;
+  background-color: var(--bg-color);
+}
+
+.btn_raspberry {
+  --bg-color: $bg-raspberry;
+}
+
+.btn:hover {
+  color: var(--bg-color);
+  background: var(--text-color);
+  transition: all 0.3s ease 0s;
+}

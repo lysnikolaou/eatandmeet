@@ -9,7 +9,7 @@ const Button = (props) => {
             className={cx({
                 [styles.btn_jungle]: props.color === colors.GREEN,
                 [styles.btn_raspberry]: props.color === colors.RED,
-            }, styles.btn)}
+            }, styles.btn, 'btn')}
             {...props}
         />
     );

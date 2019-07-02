@@ -125,6 +125,10 @@ export const events =[
             3,
             4,
         ],
+        topics: [
+            'sport',
+            'politics',
+        ],
     },
     {
         id: 2,

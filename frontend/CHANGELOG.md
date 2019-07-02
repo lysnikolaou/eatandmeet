@@ -14,4 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [FE-19](https://github.com/lysnikolaou/eatandmeet/issues/50) Add Dependabot
 - [FE-20](https://github.com/lysnikolaou/eatandmeet/issues/57) Add Logout Button
 - [FE-21](https://github.com/lysnikolaou/eatandmeet/issues/64) Loading Indicator
-
+- [FE-08](https://github.com/lysnikolaou/eatandmeet/issues/24) Share Button
+- [FE-07](https://github.com/lysnikolaou/eatandmeet/issues/23) Join Event Button
+- [FE-22](https://github.com/lysnikolaou/eatandmeet/issues/66) Event Page

@@ -167,11 +167,6 @@ class EventPage extends Component {
                                     </TelegramShareButton>
                                 </div>
                                 <div className={styles.share}>
-                                    <FacebookShareButton url={url}>
-                                        <FacebookIcon size={32} round={true} className="d-inline"/>
-                                    </FacebookShareButton>
-                                </div>
-                                <div className={styles.share}>
                                     <WhatsappShareButton url={url}>
                                         <WhatsappIcon size={32} round={true} className="d-inline"/>
                                     </WhatsappShareButton>

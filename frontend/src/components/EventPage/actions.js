@@ -31,7 +31,7 @@ export const fetchEvent = (id) => {
         const event = events.filter((element) => (element.id).toString() === id)[0];
         setTimeout(() => {
             dispatch(fetchEventSuccess(event));
-        }, 100);
+        }, 3000);
         return event;
 
         // return fetch('')

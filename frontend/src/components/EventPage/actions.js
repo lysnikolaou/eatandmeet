@@ -48,4 +48,3 @@ export const fetchEvent = (id) => {
 export const toggleGoing = () => ({
     type: actionType.TOGGLE_GOING,
 });
-

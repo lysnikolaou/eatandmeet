@@ -24,16 +24,16 @@ export const feeddata = [
                 ],
             },
             {
-                'id': 2,
-                'date': '04/12/19',
-                'time': '5:00 PM',
-                'creator': 'Nitzan Nashi',
-                'title': 'dinner in The Mensa!',
-                'RVSP': {
-                    'capacity': 10,
-                    'attending': 6,
-                    'available': 4,
-                    'percentage': 0.6, // this.RVSP.attending / this.RVSP.capacity,
+                id: 2,
+                date: '04/12/19',
+                time: '5:00 PM',
+                creator: 'Nitzan Nashi',
+                title: 'dinner in The Mensa!',
+                RVSP: {
+                    capacity: 10,
+                    attending: 6,
+                    available: 4,
+                    percentage: 0.6, // this.RVSP.attending / this.RVSP.capacity,
                 },
                 location: 'Mensa TU Berlin',
                 avatar: null, // null for default
@@ -48,8 +48,8 @@ export const feeddata = [
         ],
     },
     {
-        'date': '06/05/19',
-        'events': [
+        date: '06/05/19',
+        events: [
             {
                 id: 3,
                 date: '06/06/19',

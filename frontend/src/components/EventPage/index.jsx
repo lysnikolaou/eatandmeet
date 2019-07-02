@@ -49,7 +49,8 @@ class EventPage extends Component {
 
     render () {
         const {
-            error, loading, event,
+            loading,
+            event,
             going,
         } = this.props;
         if (loading) {

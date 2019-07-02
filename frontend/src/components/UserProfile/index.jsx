@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './index.scss';
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
 import Octicon, {
     Person,
 } from '@githubprimer/octicons-react';
@@ -24,10 +24,10 @@ class ProfilePage extends Component {
                                 <div className="col-md-4">
                                     <div className="profile-img">
                                         <Octicon icon={Person} size="big" className="profile-default"/>
-                                        {/*<img*/}
+                                        {/* <img*/}
                                         {/*    src="https://scontent-dus1-1.xx.fbcdn.net/v/t31.0-8/21273280_1869007506448034_8133580273270929214_o.jpg?_nc_cat=105&_nc_ht=scontent-dus1-1.xx&oh=b8cacb7402c7d2745280b584f48f30c7&oe=5D5DAADA"*/}
                                         {/*    alt=""*/}
-                                        {/*/>*/}
+                                        {/* />*/}
                                         <div className="file btn btn-lg btn-primary">
                       Change Photo
                                             <input type="file" name="file" />

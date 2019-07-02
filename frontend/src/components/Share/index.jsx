@@ -14,8 +14,8 @@ import {
     TumblrIcon,
     RedditIcon,
 } from 'react-share';
-import * as styles from "./index.module.scss";
-import React from "react";
+import * as styles from './index.module.scss';
+import React from 'react';
 
 const Share = (props) => {
     return (

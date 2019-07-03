@@ -1,0 +1,153 @@
+// body,
+// html {
+//   margin: 0;
+//   padding: 0;
+// }
+
+// body {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   height: 100vh;
+//   background: #ffefba;
+//   /* fallback for old browsers */
+//   background: -webkit-linear-gradient(to right, #ffffff, #ffefba);
+//   /* Chrome 10-25, Safari 5.1-6 */
+//   background: linear-gradient(to right, #ffffff, #ffefba);
+//   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+// }
+
+.title {
+  font-family: Verdana, sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #1b998b;
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 640px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 50px;
+}
+
+ul.ks-cboxtags {
+  list-style: none;
+  padding: 20px;
+}
+ul.ks-cboxtags li {
+  display: inline;
+}
+ul.ks-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(139, 139, 139, 0.3);
+  color: #adadad;
+  border-radius: 25px;
+  white-space: nowrap;
+  margin: 3px 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s;
+}
+
+ul.ks-cboxtags li label {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 12px;
+  padding: 2px 6px 2px 2px;
+  content: "\f067";
+  transition: transform 0.3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+  content: "\f00c";
+  transform: rotate(-360deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+  border: 2px solid #1bdbf8;
+  background-color: #12bbd4;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+  border: 2px solid #e9a1ff;
+}
+
+.myButton {
+  -moz-box-shadow: 0px 1px 0px 0px #fff6af;
+  -webkit-box-shadow: 0px 1px 0px 0px #fff6af;
+  box-shadow: 0px 1px 0px 0px #fff6af;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #ffec64),
+    color-stop(1, #ffab23)
+  );
+  background: -moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+  background: -webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+  background: -o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+  background: -ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+  background-color: #ffec64;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #ffaa22;
+  display: inline-block;
+  cursor: pointer;
+  color: #333333;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffee66;
+}
+.myButton:hover {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #ffab23),
+    color-stop(1, #ffec64)
+  );
+  background: -moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+  background: -webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+  background: -o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+  background: -ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+  background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+  background-color: #ffab23;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}

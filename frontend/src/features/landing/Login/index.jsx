@@ -8,6 +8,8 @@ import * as paths from '../paths';
 import cx from 'classnames';
 
 import Loader from '../../../components/Loader';
+import Button from '../../../components/Button';
+import * as ButtonColors from '../../../components/Button/colors';
 
 class Login extends React.Component {
     constructor (props) {
@@ -96,7 +98,11 @@ class Login extends React.Component {
                         </div>
                         <div className="form-row">
                             <div className="form-group center">
-                                <button className="btn btn-jungle">Login</button>
+                                <Button
+                                    type="button"
+                                    color={ButtonColors.GREEN}
+                                >Login
+                                </Button>
                                 {
                                     loggingIn
                                     && <Loader/>

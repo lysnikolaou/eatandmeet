@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Button from '../../../components/Button';
+import * as ButtonColors from '../../../components/Button/colors';
 
 import * as paths from '../paths';
+
+import * as styles from '../index.module.scss';
 
 class Landing extends Component {
     render () {
@@ -18,14 +22,22 @@ class Landing extends Component {
                 <div className="row justify-content-md-center">
                     <div className="col col-lg-4">
                         <Link to={paths.LOGIN} >
-                            <button type="button" className="btn btn-raspberry btn-rounded btn-block">
-                                Login
-                            </button>
+                            <Button
+                                type="button"
+                                color={ButtonColors.RED}
+                                className={styles.btn_width}
+                            >Login
+                            </Button>
                         </Link>
                     </div>
                     <div className="col col-lg-4">
                         <Link to={paths.REGISTER}>
-                            <button type="button" className="btn btn-jungle btn-rounded btn-block">Register</button>
+                            <Button
+                                type="button"
+                                color={ButtonColors.GREEN}
+                                className={styles.btn_width}
+                            >Register
+                            </Button>
                         </Link>
                     </div>
                 </div>

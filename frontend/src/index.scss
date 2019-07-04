@@ -4,6 +4,10 @@
     font-family: 'Trebuchet', sans-serif;
 }
 
+body {
+    background: $bg-gray;
+}
+
 .link {
     color: $color-jungle;
 }
@@ -12,8 +16,6 @@
     color: $color-jungle-dark;
     text-decoration: none;
 }
-
-
 
 a:hover {
     color: $color-floral;
@@ -28,12 +30,10 @@ button::after {
     transition: all 0.3s;
 }
 
-
 .btn-jungle {
     background: $bg-jungle;
     color: #ffffff;
 }
-
 
 .btn-jungle:hover {
     color: $bg-jungle !important;

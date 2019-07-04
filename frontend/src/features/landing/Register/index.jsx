@@ -11,9 +11,8 @@ import * as Validator from './validate';
 
 import './index.scss';
 import Loader from '../../../components/Loader';
-import Button from "../../../components/Button";
-import * as ButtonColors from "../../../components/Button/colors";
-import * as styles from "../index.module.scss";
+import Button from '../../../components/Button';
+import * as ButtonColors from '../../../components/Button/colors';
 
 class Register extends React.Component {
     constructor (props) {

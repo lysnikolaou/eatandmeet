@@ -8,9 +8,8 @@ import * as paths from '../paths';
 import cx from 'classnames';
 
 import Loader from '../../../components/Loader';
-import Button from "../../../components/Button";
-import * as ButtonColors from "../../../components/Button/colors";
-import * as styles from "../index.module.scss";
+import Button from '../../../components/Button';
+import * as ButtonColors from '../../../components/Button/colors';
 
 class Login extends React.Component {
     constructor (props) {

@@ -4,7 +4,6 @@ import cx from 'classnames';
 import React from 'react';
 
 const Button = (props) => {
-    console.log(props.className);
     return (
         <button
             className={cx({

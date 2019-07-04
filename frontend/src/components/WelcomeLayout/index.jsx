@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 
 import logo from '../../static/images/logo/logo.svg';
 import './index.scss';
-import DataInfo from "../DataInfo"; // style
+import DataInfo from '../DataInfo'; // style
 
 const WelcomeLayout = ({children}) => <div className="bg-gray">
     <DataInfo/>

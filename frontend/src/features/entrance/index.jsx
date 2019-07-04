@@ -10,6 +10,7 @@ import {Feed} from '../feed';
 import {ProfilePage} from '../../components/UserProfile';
 
 import * as paths from './paths';
+import EventPage from '../../components/EventPage';
 import LoadingComponent from '../../components/loadingComponent';
 
 class Entrance extends Component {
@@ -29,6 +30,12 @@ class Entrance extends Component {
                 <MainLayoutRoute
                     path={`${paths.FEED}/:year/:month/:day`}
                     component={Feed}
+                />
+
+                <MainLayoutRoute
+                    path={`${paths.EVENT}/:id`}
+                    component={EventPage}
+
                 />
 
                 <MainLayoutRoute

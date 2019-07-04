@@ -5,7 +5,7 @@ const getVisibileFeed = (feeds, date) => {
     if (date) {
         return feeds.filter((d) => {
             return (
-                d.date.getTime() === date.getTime()
+                new Date(d.date).getTime() === new Date(date).getTime()
             );
         });
     }

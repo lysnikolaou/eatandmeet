@@ -4,14 +4,22 @@ import cx from 'classnames';
 import React from 'react';
 
 const Button = (props) => {
+    console.log(props.className);
     return (
         <button
             className={cx({
                 [styles.btn_jungle]: props.color === colors.GREEN,
                 [styles.btn_raspberry]: props.color === colors.RED,
-            }, styles.btn, 'btn')}
-            {...props}
-        />
+            }, props.className, styles.btn, 'btn',)}
+            type={props.type}
+            value={props.value}
+            onClick={props.onClick}
+            onChange={props.onChange}
+            name={props.name}
+        >
+            {props.children}
+        </button>
+
     );
 };
 

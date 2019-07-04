@@ -28,9 +28,9 @@
 
 
 .btn_jungle {
-  --bg-color: #{$bg-jungle};
+  --bg-color: linear-gradient(-90deg, #{$bg-jungle}, #{$color_aquamarine});
 }
 
 .btn_raspberry {
-  --bg-color: #{$bg-raspberry};
+  --bg-color: linear-gradient(-90deg, #{$bg-raspberry}, #{$bg_rose});
 }

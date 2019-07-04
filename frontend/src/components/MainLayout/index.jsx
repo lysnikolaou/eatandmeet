@@ -3,12 +3,15 @@ import {Route} from 'react-router-dom';
 
 import {Navigation} from '../../components/Navigation';
 
-import './index.scss';
+import * as styles from './index.module.scss';
+
 import DataInfo from '../DataInfo';
+
+import cx from 'classnames';
 
 const MainLayout = ({children}) => {
     return (
-        <div className="bg-gray fill container-fluid body">
+        <div className={cx('bg-gray fill', 'container-fluid', styles.main_wrapper)}>
             {children}
         </div>
     );

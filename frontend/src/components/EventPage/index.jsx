@@ -61,7 +61,7 @@ class EventPage extends Component {
         const url = window.location.href;
         const date = getDay(event.date);
         return (
-            <div className="row">
+            <div className={cx('row', styles.event_wrapper)}>
                 <div className={cx('center', 'col-lg-7', 'col-12', 'card', {
                     [styles.card_go]: going,
                 })}>

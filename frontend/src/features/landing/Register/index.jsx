@@ -11,6 +11,8 @@ import * as Validator from './validate';
 
 import './index.scss';
 import Loader from '../../../components/Loader';
+import Button from '../../../components/Button';
+import * as ButtonColors from '../../../components/Button/colors';
 
 class Register extends React.Component {
     constructor (props) {
@@ -185,9 +187,12 @@ class Register extends React.Component {
 
                         <div className="form-row">
                             <div className="form-group center">
-                                <button className="btn btn-jungle">
+                                <Button
+                                    type="button"
+                                    color={ButtonColors.GREEN}
+                                >
                                     Register
-                                </button>
+                                </Button>
                                 {
                                     registering
                                     && <Loader/>

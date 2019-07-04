@@ -6,6 +6,7 @@ import './index.scss';
 import DataInfo from "../DataInfo"; // style
 
 const WelcomeLayout = ({children}) => <div className="bg-gray">
+    <DataInfo/>
     <div className={'cover'}/>
     <div className="bg-text">
         <div className="row">
@@ -19,7 +20,6 @@ const WelcomeLayoutRoute = ({
 }) => {
     return (
         <Route {...rest} render={(matchProps) => <WelcomeLayout>
-            <DataInfo/>
             <Component {...matchProps} />
         </WelcomeLayout>
         } />

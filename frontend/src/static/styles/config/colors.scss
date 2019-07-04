@@ -11,9 +11,14 @@ $color-jungle-dark: #198C7F;
 
 // Backgrounds
 $bg-jungle: #1b998b;
+$bg_spring_bud: #bce784;
+$bg_rose: #D12366;
 $bg-raspberry: #930439;
 $bg-floral: #FFF8F0;
 $bg-gray: #F1F2F3;
-// Borders
+
+// Gradient
+$gradient_green: linear-gradient(-90deg, #{$bg-jungle}, #{$color_aquamarine});
+$gradient_red: linear-gradient(-90deg, #{$bg-raspberry}, #{$bg_rose});
 
 

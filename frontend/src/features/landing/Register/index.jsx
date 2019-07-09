@@ -190,6 +190,7 @@ class Register extends React.Component {
                                 <Button
                                     type="button"
                                     color={ButtonColors.GREEN}
+                                    onClick={this.handleSubmit}
                                 >
                                     Register
                                 </Button>

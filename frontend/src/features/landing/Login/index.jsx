@@ -101,6 +101,8 @@ class Login extends React.Component {
                                 <Button
                                     type="button"
                                     color={ButtonColors.GREEN}
+                                    onClick={this.handleSubmit}
+
                                 >Login
                                 </Button>
                                 {

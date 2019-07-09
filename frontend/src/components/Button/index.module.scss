@@ -22,7 +22,8 @@
 
   &:hover{
     color: var(--text-color);
-    opacity: 0.8;
+    -webkit-filter: contrast(1.5);
+    filter: contrast(1.5);
   }
 }
 

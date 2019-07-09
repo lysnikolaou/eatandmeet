@@ -2,9 +2,11 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 
 import logo from '../../static/images/logo/logo.svg';
-import './index.scss'; // style
+import './index.scss';
+import DataInfo from '../DataInfo'; // style
 
 const WelcomeLayout = ({children}) => <div className="bg-gray">
+    <DataInfo/>
     <div className={'cover'}/>
     <div className="bg-text">
         <div className="row">

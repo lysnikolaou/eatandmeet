@@ -53,6 +53,16 @@ class CreateEvent extends Component {
                                 />
                             </div>
                             <div className="form-group">
+                                <label htmlFor="description">Description</label>
+                                <textarea
+                                    type="text"
+                                    id="description"
+                                    className="form-control"
+                                    placeholder="Description"
+                                    maxlength="128"
+                                />
+                            </div>
+                            <div className="form-group">
                                 <label htmlFor="eventDatetime">Topics</label>
                                 <br />
                                 <ul className="ks-cboxtags">

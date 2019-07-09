@@ -4,13 +4,13 @@ import {authHeader} from '../helpers/auth-header';
 const logout = () => {
     const requestOptions = {
         method: 'POST',
-        headers: authHeader()
-    }
+        headers: authHeader(),
+    };
 
     // remove user from local storage to log user out
     localStorage.removeItem('user');
 
-    return fetch(`${config.apiUrl}/users/logout/`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/users/logout/`, requestOptions);
 };
 
 const handleResponse = (response) => {

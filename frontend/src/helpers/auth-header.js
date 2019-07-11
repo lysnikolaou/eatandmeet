@@ -4,6 +4,11 @@ export const authHeader = () => {
     // return authorization header with basic auth credentials
     const user = JSON.parse(localStorage.getItem('user'));
 
-    if (user && user.authdata) { return {Authorization: `Basic ${user.authdata}`}; }
+    if (user && user.token) {
+        return {
+            Authorization: `Token ${user.token}`,
+            'Content-Type': 'application/json',
+        };
+    }
     return {};
 };

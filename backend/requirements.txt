@@ -16,4 +16,4 @@ pytz==2019.1
 six==1.12.0
 sqlparse==0.3.0
 wcwidth==0.1.7
-django_filters=2.1.0
+django-filter==2.1.0

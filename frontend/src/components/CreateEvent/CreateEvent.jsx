@@ -60,9 +60,7 @@ class CreateEvent extends Component {
     }
 
     handleSubmit (e) {
-        console.log('hello');
         e.preventDefault();
-        console.log('hello');
         this.setState({submitted: true});
         const {event} = this.state;
         const {dispatch} = this.props;

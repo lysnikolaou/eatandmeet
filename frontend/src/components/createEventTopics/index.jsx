@@ -19,7 +19,7 @@ const TOPIC_CHOICES = [
 ];
 
 export const topicsWrapper =(onclick) => {
-    const topicsList = TOPIC_CHOICES.map((topic,index) => {
+    const topicsList = TOPIC_CHOICES.map((topic, index) => {
         return (
             <li
                 key={index}

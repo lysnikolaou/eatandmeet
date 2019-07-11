@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './CreateEvent.scss';
 // import {Route} from 'react-router-dom';
 // import {connect} from 'react-redux';
-//import * as buttonColors from "../Button/colors";
+// import * as buttonColors from "../Button/colors";
 
 class CreateEvent extends Component {
     render () {
@@ -59,7 +59,7 @@ class CreateEvent extends Component {
                                     id="description"
                                     className="form-control"
                                     placeholder="Description"
-                                    maxlength="128"
+                                    maxLength="128"
                                 />
                             </div>
                             <div className="form-group">

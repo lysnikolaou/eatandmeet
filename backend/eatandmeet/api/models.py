@@ -8,8 +8,8 @@ from authentication.models import User
 TOPIC_CHOICES = [
         ('Politics', 'Politics'),
         ('Soccer', 'Soccer'),
-        ('Films' ,'Films'),
-        ('Music' ,'Music'),
+        ('Films','Films'),
+        ('Music','Music'),
     ]
 
 PLACE_CHOICES = [
@@ -28,12 +28,15 @@ class Event(models.Model):
     location = models.CharField(max_length=11, choices =PLACE_CHOICES, default ='Hauptmensa' )
     slots = models.IntegerField(default =3, validators=[MinValueValidator(1), MaxValueValidator(12)])
     description = models.CharField(max_length=128)
+    day = models.DateField(blank=True)
+    
+    def save(self, *args, **kwargs):
+        self.day = self.date
+        super(Event, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
-    
-    def available_slots(self):
-        return self.slots - 1 - len(self.event_admins) - len(self.event_members)
+
 
 
 

@@ -8,22 +8,9 @@ class EventSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ('id', 'event_creator', 'title', 'date', 'topics', 'location', 'event_members', 'event_admins','slots','description')
+        fields = ('id', 'event_creator', 'title', 'date', 'topics', 'location', 'event_members', 'event_admins','slots','description','day')
         read_only_fields = ('event_creator', 'id')
     
-
-    def update(self, instance, validated_data):
-        event_members = validated_data.get('event_members', instance.event_members)
-        # instance.description = validated_data.get('description,instance.id')
-        # instance.date  = validated_data.get('date',instance.date)
-        # event_to_check = events.get(id=id)
-        # remaining_slots = event_to_check.slots
-        isTypeOf = type(event_members)
-        members_number = ''.join(event_members)
-        instance.title = f'test {isTypeOf} and the number is '
-
-        instance.save() 
-        return instance
 
 
 class CommentSerializer(serializers.ModelSerializer):

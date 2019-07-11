@@ -18,12 +18,15 @@ class EventViewSet(viewsets.ModelViewSet):
 
     Filtering for location example: 
     GET ../events/?location = Hauptmensa
+
+    Filtering for day example:
+    Get ../events/?day=2019-07-31
     """
     queryset = Event.objects.all()
     serializer_class = (EventSerializer)
     permission_classes = (permissions.IsAuthenticated, EventPermissions,)
     filter_backends = (DjangoFilterBackend, )
-    filter_fields = ('date', 'location','slots')
+    filter_fields = ('date', 'location','slots','day')
     
 
     def get_queryset(self):

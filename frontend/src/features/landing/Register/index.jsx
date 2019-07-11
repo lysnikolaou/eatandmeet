@@ -25,6 +25,7 @@ class Register extends React.Component {
                 password: '',
                 email: '',
                 username: '',
+                isActive: true,
             },
             submitted: false,
             errors: {
@@ -188,7 +189,7 @@ class Register extends React.Component {
                         <div className="form-row">
                             <div className="form-group center">
                                 <Button
-                                    type="button"
+                                    type="submit"
                                     color={ButtonColors.GREEN}
                                 >
                                     Register

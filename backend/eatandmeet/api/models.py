@@ -24,7 +24,7 @@ class Event(models.Model):
     event_admins = models.ManyToManyField(User, related_name='event_admins', blank=True)
     event_members = models.ManyToManyField(User, related_name='event_members', blank=True)
     topics = MultiSelectField(choices=TOPIC_CHOICES)
-    places = models.CharField(max_length=11, choices =PLACE_CHOICES, default ='Hauptmensa' )
+    location = models.CharField(max_length=11, choices =PLACE_CHOICES, default ='Hauptmensa' )
 
     def __str__(self):
         return self.title

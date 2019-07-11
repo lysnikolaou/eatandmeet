@@ -1,11 +1,71 @@
 import React, {Component} from 'react';
 import './CreateEvent.scss';
-// import {Route} from 'react-router-dom';
-// import {connect} from 'react-redux';
-// import * as buttonColors from "../Button/colors";
+// import * as Validator from "../../features/landing/Register/validate";
+import {addEvent} from './actions';
+import {remove} from 'lodash';
 
 class CreateEvent extends Component {
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            event: {
+                title: '',
+                date: '',
+                topics: [],
+                places: '',
+                description: '',
+                slots: '',
+            },
+            submitted: false,
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.toggleTopic = this.toggleTopic.bind(this);
+    }
+
+    toggleTopic (topic) {
+        const {topics} = this.state;
+        if (topics.includes(topic)) {
+            topics.splice(topic.indexOf(topic), 1);
+        } else {
+            topics.push(topic);
+        }
+        const {event} = this.state;
+        this.setState({
+            event: {
+                ...event,
+                topics,
+            },
+        });
+    }
+
+    handleChange (e) {
+        const {
+            name, value,
+        } = e.target;
+        const {event} = this.state;
+        this.setState({
+            event: {
+                ...event,
+                [name]: value,
+            },
+        });
+    }
+
+    handleSubmit (e) {
+        e.preventDefault();
+        this.setState({submitted: true});
+        const {event} = this.state;
+        const {dispatch} = this.props;
+        dispatch(addEvent(event));
+    }
+
     render () {
+        const {
+            event, submitted,
+        } = this.state;
         return (
             <div className="container">
                 <div>
@@ -21,6 +81,9 @@ class CreateEvent extends Component {
                                     id="task"
                                     className="form-control"
                                     placeholder="Event Name"
+                                    onChange={this.handleChange}
+                                    value={event.title}
+
                                 />
                             </div>
                             <div className="form-group">
@@ -30,6 +93,8 @@ class CreateEvent extends Component {
                                     id="location"
                                     className="form-control"
                                     placeholder="Event Location"
+                                    onChange={this.handleChange}
+                                    value={event.places}
                                 />
                             </div>
                             <div className="form-group">
@@ -40,6 +105,8 @@ class CreateEvent extends Component {
                                     id="datetime"
                                     className="form-control"
                                     placeholder="Date & Time"
+                                    onChange={this.handleChange}
+                                    value={event.date}
                                 />
                             </div>
                             <div className="form-group">
@@ -50,6 +117,8 @@ class CreateEvent extends Component {
                                     id="#members"
                                     className="form-control"
                                     placeholder="Maximum Members"
+                                    onChange={this.handleChange}
+                                    value={event.slots}
                                 />
                             </div>
                             <div className="form-group">
@@ -60,6 +129,8 @@ class CreateEvent extends Component {
                                     className="form-control"
                                     placeholder="Description"
                                     maxLength="128"
+                                    onChange={this.handleChange}
+                                    value={event.description}
                                 />
                             </div>
                             <div className="form-group">
@@ -67,7 +138,11 @@ class CreateEvent extends Component {
                                 <br />
                                 <ul className="ks-cboxtags">
                                     <li>
-                                        <input type="checkbox" id="checkboxOne" value="politics" />
+                                        <input
+                                            type="checkbox"
+                                            id="checkboxOne"
+                                            value="politics"
+                                            onClick={this.toggleTopic} />
                                         <label htmlFor="checkboxOne">Politics</label>
                                     </li>
                                     <li>
@@ -75,6 +150,7 @@ class CreateEvent extends Component {
                                             type="checkbox"
                                             id="checkboxTwo"
                                             value="environment"
+                                            onClick={this.toggleTopic}
                                         />
                                         <label htmlFor="checkboxTwo">Environment</label>
                                     </li>

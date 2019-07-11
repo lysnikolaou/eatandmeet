@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'multiselectfield',
     'rest_framework',
     'rest_framework_extensions',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -111,6 +113,13 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
 }
+
+CORS_ORIGIN_WHITELIST = [
+    'http://lysnikolaou.com:3000',
+    'https://lysnikolaou.com:3000',
+    'http://eatandmeet.lysnikolaou.com:3000',
+    'https://eatandmeet.lysnikolaou.com:3000'
+]
 
 
 # Internationalization

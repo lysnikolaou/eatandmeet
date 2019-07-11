@@ -16,7 +16,7 @@ class Login extends React.Component {
         super(props);
 
         // reset login status
-        this.props.dispatch(userActions.logout());
+        // this.props.dispatch(userActions.logout());
 
         this.state = {
             email: '',
@@ -99,7 +99,7 @@ class Login extends React.Component {
                         <div className="form-row">
                             <div className="form-group center">
                                 <Button
-                                    type="button"
+                                    type="submit"
                                     color={ButtonColors.GREEN}
                                 >Login
                                 </Button>

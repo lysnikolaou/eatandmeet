@@ -12,11 +12,21 @@ from django_filters.filters import DateFilter
 
 
 class EventViewSet(viewsets.ModelViewSet):
+    """
+    The events API, which shows all the events.
+    GET ../events
+
+    Filtering for location example: 
+    GET ../events/?location = Hauptmensa
+
+    Filtering for day example:
+    Get ../events/?day=2019-07-31
+    """
     queryset = Event.objects.all()
     serializer_class = (EventSerializer)
     permission_classes = (permissions.IsAuthenticated, EventPermissions,)
     filter_backends = (DjangoFilterBackend, )
-    filter_fields = ('date', 'location')
+    filter_fields = ('date', 'location','slots','day')
     
 
     def get_queryset(self):
@@ -27,6 +37,11 @@ class EventViewSet(viewsets.ModelViewSet):
 
 
 class FeedViewSet(viewsets.ModelViewSet):
+    """
+    The feed API, which shows the first 5 events which are chronologically
+    closest to the current day.
+    GET ../feed
+    """
     queryset = Event.objects.all()
     serializer_class = (EventSerializer)
     permission_classes = (permissions.IsAuthenticated, EventPermissions,)

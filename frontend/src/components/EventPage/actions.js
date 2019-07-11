@@ -1,47 +1,51 @@
 import * as actionType from './action-types';
-import {events} from '../../fakedata/feed';
+import {eventService} from '../../services/event.service';
 
-export const fetchEventBegin = () => ({
-    type: actionType.FETCH_EVENT_BEGIN,
-});
+// export const fetchEventBegin = () => ({
+//     type: actionType.FETCH_EVENT_BEGIN,
+// });
+//
+// export const fetchEventSuccess = (products) => ({
+//     type: actionType.FETCH_EVENT_SUCCESS,
+//     payload: {products},
+// });
+//
+// export const fetchEventFailure = (error) => ({
+//     type: actionType.FETCH_EVENT_FAILURE,
+//     payload: {error},
+// });
 
-export const fetchEventSuccess = (products) => ({
-    type: actionType.FETCH_EVENT_SUCCESS,
-    payload: {products},
-});
-
-export const fetchEventFailure = (error) => ({
-    type: actionType.FETCH_EVENT_FAILURE,
-    payload: {error},
-});
-
-// Handle HTTP errors since fetch won't.
-export const handleErrors = (response) => {
-    if (!response.ok) {
-        throw Error(response.statusText);
-    }
-    return response;
-};
+// // Handle HTTP errors since fetch won't.
+// // export const handleErrors = (response) => {
+// //     if (!response.ok) {
+// //         throw Error(response.statusText);
+// //     }
+// //     return response;
+// // };
 
 export const fetchEvent = (id) => {
-    // todo remove the setTimeout
+    const request = () => { return {type: actionType.FETCH_EVENT}; };
+
+    const success = (event) => {
+        return {
+            type: actionType.FETCH_EVENT_SUCCESS,
+            event,
+        };
+    };
+
+    const failure = (error) => {
+        return {
+            type: actionType.FETCH_EVENT_FAILURE, error,
+        };
+    };
 
     return (dispatch) => {
-        dispatch(fetchEventBegin());
-        const event = events.filter((element) => (element.id).toString() === id)[0];
-        setTimeout(() => {
-            dispatch(fetchEventSuccess(event));
-        }, 3000);
-        return event;
-
-        // return fetch('')
-        //     .then(handleErrors)
-        //     .then(res => res.json())
-        //     .then(json => {
-        //         dispatch(fetcheventSuccess(json.products));
-        //         return json.products;
-        //     })
-        //     .catch(error => dispatch(fetcheventFailure(error)));
+        dispatch(request());
+        eventService.getById(id)
+            .then(
+                (event) => dispatch(success(event)),
+                (error) => dispatch(failure(error.toString()))
+            );
     };
 };
 

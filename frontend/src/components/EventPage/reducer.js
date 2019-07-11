@@ -9,6 +9,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.FETCH_EVENT:
+            return {
+                ...state,
+                loading: true,
+                error: null,
+            };
         case actionTypes.FETCH_EVENT_BEGIN:
             return {
                 ...state,
@@ -19,13 +25,13 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                event: action.payload.products,
+                event: action.event,
             };
         case actionTypes.FETCH_EVENT_FAILURE:
             return {
                 ...state,
                 loading: false,
-                error: action.payload.error,
+                error: action.error,
                 event: null,
             };
         case actionTypes.TOGGLE_GOING:

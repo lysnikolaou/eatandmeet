@@ -24,10 +24,7 @@ TOPIC_CHOICES = [
         
     ]
 
-PLACE_CHOICES = [
-        ('Mathe Mensa', 'Mathe Mensa'),
-        ('Hauptmensa', 'Hauptmensa'),
-    ]
+
 
 
 class Event(models.Model):
@@ -37,7 +34,7 @@ class Event(models.Model):
     event_admins = models.ManyToManyField(User, related_name='event_admins', blank=True)
     event_members = models.ManyToManyField(User, related_name='event_members', blank=True)
     topics = MultiSelectField(choices=TOPIC_CHOICES)
-    location = models.CharField(max_length=30, default ='Hauptmensa' )
+    location = models.CharField(max_length=30, default='Hauptmensa' )
     slots = models.IntegerField(default =3, validators=[MinValueValidator(1), MaxValueValidator(12)])
     description = models.CharField(max_length=128)
     day = models.DateField(blank=True)

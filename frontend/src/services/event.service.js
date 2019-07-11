@@ -22,7 +22,7 @@ const getAll = () => {
         headers: authHeader(),
     };
 
-    return fetch(`${config.apiUrl}/events/`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/api/events/`, requestOptions).then(handleResponse);
 };
 
 const getById = (id) => {
@@ -30,8 +30,7 @@ const getById = (id) => {
         method: 'GET',
         headers: authHeader(),
     };
-
-    return fetch(`${config.apiUrl}/events/${id}/`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/api/events/${id}/`, requestOptions).then(handleResponse);
 };
 
 const update = (event) => {
@@ -41,7 +40,7 @@ const update = (event) => {
         body: JSON.stringify(event),
     };
 
-    return fetch(`${config.apiUrl}/events/${event.id}/`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/api/events/${event.id}/`, requestOptions).then(handleResponse);
 };
 
 // prefixed function name with underscore because delete is a reserved word in javascript
@@ -51,7 +50,7 @@ const _delete = (id) => {
         headers: authHeader(),
     };
 
-    return fetch(`${config.apiUrl}/events/${id}`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/api/events/${id}`, requestOptions).then(handleResponse);
 };
 
 export const eventService = {

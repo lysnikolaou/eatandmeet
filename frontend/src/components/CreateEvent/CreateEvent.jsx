@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import './CreateEvent.scss';
-// import * as Validator from "../../features/landing/Register/validate";
 import {addEvent} from './actions';
-import {remove} from 'lodash';
+import * as style from './index.module.scss';
+import * as buttonColors from '../Button/colors';
+import Button from '../Button';
+import cx from 'classnames';
+import {topicsWrapper} from '../createEventTopics';
+import {connect} from 'react-redux';
 
 class CreateEvent extends Component {
     constructor (props) {
@@ -25,10 +28,11 @@ class CreateEvent extends Component {
         this.toggleTopic = this.toggleTopic.bind(this);
     }
 
-    toggleTopic (topic) {
-        const {topics} = this.state;
+    toggleTopic (e) {
+        const topic= e.target.value;
+        const {topics} = this.state.event;
         if (topics.includes(topic)) {
-            topics.splice(topic.indexOf(topic), 1);
+            topics.splice(topics.indexOf(topic), 1);
         } else {
             topics.push(topic);
         }
@@ -43,7 +47,8 @@ class CreateEvent extends Component {
 
     handleChange (e) {
         const {
-            name, value,
+            name,
+            value,
         } = e.target;
         const {event} = this.state;
         this.setState({
@@ -55,7 +60,9 @@ class CreateEvent extends Component {
     }
 
     handleSubmit (e) {
+        console.log('hello');
         e.preventDefault();
+        console.log('hello');
         this.setState({submitted: true});
         const {event} = this.state;
         const {dispatch} = this.props;
@@ -64,21 +71,21 @@ class CreateEvent extends Component {
 
     render () {
         const {
-            event, submitted,
+            event,
         } = this.state;
+        const topicsList = topicsWrapper(this.toggleTopic);
         return (
-            <div className="container">
+            <div className={cx('center', 'col-lg-7', 'col-12',)}>
                 <div>
-                    <h1 className="title">NEW EVENT</h1>
+                    <h1 className={style.title}>NEW EVENT</h1>
 
                     <div className="create-event">
-                        <form id="contact_form">
+                        <form id="contact_form" onSubmit={this.handleSubmit}>
                             <div className="form-group">
-                                <label htmlFor="eventName">Name</label>
+                                <label htmlFor="name">Name</label>
                                 <input
                                     type="text"
-                                    name={'task'}
-                                    id="task"
+                                    name="title"
                                     className="form-control"
                                     placeholder="Event Name"
                                     onChange={this.handleChange}
@@ -87,22 +94,21 @@ class CreateEvent extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="eventLocation">Location</label>
+                                <label htmlFor="places">Location</label>
                                 <input
                                     type="text"
-                                    id="location"
+                                    name="places"
                                     className="form-control"
-                                    placeholder="Event Location"
+                                    placeholder="Location Name"
                                     onChange={this.handleChange}
                                     value={event.places}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="eventDatetime">Date & Time</label>
+                                <label htmlFor="date">Date & Time</label>
                                 <input
                                     type="datetime-local"
-                                    name={'datetime'}
-                                    id="datetime"
+                                    name="date"
                                     className="form-control"
                                     placeholder="Date & Time"
                                     onChange={this.handleChange}
@@ -110,11 +116,10 @@ class CreateEvent extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="eventSlots">Slots</label>
+                                <label htmlFor="slots">Slots</label>
                                 <input
                                     type="number"
-                                    name={'#members'}
-                                    id="#members"
+                                    name="slots"
                                     className="form-control"
                                     placeholder="Maximum Members"
                                     onChange={this.handleChange}
@@ -122,10 +127,10 @@ class CreateEvent extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="description">Description</label>
+                                <label htmlFor="description">Description (max 128)</label>
                                 <textarea
                                     type="text"
-                                    id="description"
+                                    name="description"
                                     className="form-control"
                                     placeholder="Description"
                                     maxLength="128"
@@ -136,104 +141,12 @@ class CreateEvent extends Component {
                             <div className="form-group">
                                 <label htmlFor="eventDatetime">Topics</label>
                                 <br />
-                                <ul className="ks-cboxtags">
-                                    <li>
-                                        <input
-                                            type="checkbox"
-                                            id="checkboxOne"
-                                            value="politics"
-                                            onClick={this.toggleTopic} />
-                                        <label htmlFor="checkboxOne">Politics</label>
-                                    </li>
-                                    <li>
-                                        <input
-                                            type="checkbox"
-                                            id="checkboxTwo"
-                                            value="environment"
-                                            onClick={this.toggleTopic}
-                                        />
-                                        <label htmlFor="checkboxTwo">Environment</label>
-                                    </li>
-                                    <li>
-                                        <input
-                                            type="checkbox"
-                                            id="checkboxThree"
-                                            value="education"
-                                        />
-                                        <label htmlFor="checkboxThree">Education</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="checkboxFour" value="travel" />
-                                        <label htmlFor="checkboxFour">Travel</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="checkboxFive" value="sports" />
-                                        <label htmlFor="checkboxFive">Sports</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="checkboxSix" value="music" />
-                                        <label htmlFor="checkboxSix">Music</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="checkboxSeven" value="movies" />
-                                        <label htmlFor="checkboxSeven">Movies</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="checkboxEight" value="books" />
-                                        <label htmlFor="checkboxEight">Books</label>
-                                    </li>
-                                    <li>
-                                        <input
-                                            type="checkbox"
-                                            id="checkboxNine"
-                                            value="technology"
-                                        />
-                                        <label htmlFor="checkboxNine">Technology</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="checkboxTen" value="science" />
-                                        <label htmlFor="checkboxTen">Science</label>
-                                    </li>
-                                    <li className="ks-selected">
-                                        <input
-                                            type="checkbox"
-                                            id="checkboxEleven"
-                                            value="animals"
-                                        />
-                                        <label htmlFor="checkboxEleven">Animals</label>
-                                    </li>
-                                    <li>
-                                        <input
-                                            type="checkbox"
-                                            id="checkboxTwelve"
-                                            value="celebrities"
-                                        />
-                                        <label htmlFor="checkboxTwelve">Celebrities</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="checkboxThirteen" value="news" />
-                                        <label htmlFor="checkboxThirteen">News</label>
-                                    </li>
-                                    <li>
-                                        <input
-                                            type="checkbox"
-                                            id="checkboxFourteen"
-                                            value="general"
-                                        />
-                                        <label htmlFor="checkboxFourteen">General</label>
-                                    </li>
-                                    <li>
-                                        <input
-                                            type="checkbox"
-                                            id="checkboxFifteen"
-                                            value="smalltalk"
-                                        />
-                                        <label htmlFor="checkboxFifteen">Smalltalk</label>
-                                    </li>
-                                </ul>
+                                {topicsList}
                             </div>
-
-                            <input type="submit" value="Submit" className="myButton" />
+                            <Button
+                                type="submit"
+                                color={buttonColors.GREEN}
+                            >Submit</Button>
                         </form>
                     </div>
                 </div>
@@ -241,4 +154,12 @@ class CreateEvent extends Component {
         );
     }
 }
-export default CreateEvent;
+const mapStateToProps = (state) => {
+    const {event} = state.createEvent;
+    return {
+        event,
+    };
+};
+
+const connectedPage = connect(mapStateToProps)(CreateEvent);
+export {connectedPage as CreateEvent};

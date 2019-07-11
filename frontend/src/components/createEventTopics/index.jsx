@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './index.scss';
 const TOPIC_CHOICES = [
     'Politics',
     'Films',
@@ -18,24 +18,25 @@ const TOPIC_CHOICES = [
     'Smalltalk',
 ];
 
-const topicItem =(topic, onClick) => {
-    return (
-        <li>
-            <input
-                type="checkbox"
-                id="checkboxOne"
-                value="politics"
-                onClick={onClick} />
-            <label htmlFor="checkbox">topic</label>
-        </li>
-    );
-};
-
-export const Topics =(onclick) => {
-    const topics = TOPIC_CHOICES.map((topic) => topicItem(topic, onclick));
+export const topicsWrapper =(onclick) => {
+    const topicsList = TOPIC_CHOICES.map((topic,index) => {
+        return (
+            <li
+                key={index}
+            >
+                <input
+                    type="checkbox"
+                    id={topic}
+                    value={topic}
+                    onClick={onclick}
+                />
+                <label htmlFor={topic}>{topic}</label>
+            </li>
+        );
+    });
     return (
         <ul className="ks-cboxtags">
-            {topics}
+            {topicsList}
         </ul>
     );
 };

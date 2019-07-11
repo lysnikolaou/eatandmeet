@@ -11,7 +11,7 @@ import {ProfilePage} from '../../components/UserProfile';
 import * as paths from './paths';
 import EventPage from '../../components/EventPage';
 import LoadingComponent from '../../components/loadingComponent';
-import CreateEvent from '../../components/CreateEvent/CreateEvent';
+import {CreateEvent} from '../../components/CreateEvent/CreateEvent';
 
 class Entrance extends Component {
     render () {

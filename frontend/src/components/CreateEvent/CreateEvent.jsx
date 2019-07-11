@@ -8,7 +8,7 @@ import './index.scss';
 class CreateEvent extends Component {
     render () {
         return (
-            <div className={cx('center', 'col-lg-7', 'col-12', )}>
+            <div className={cx('center', 'col-lg-7', 'col-12',)}>
                 <div>
                     <h1 className={style.title}>NEW EVENT</h1>
 

@@ -4,7 +4,9 @@ import {Link} from 'react-router-dom';
 import {userActions} from '../../actions/user.actions';
 import {connect} from 'react-redux';
 
-import './index.scss';
+import cx from 'classnames';
+
+import * as styles from './index.module.scss';
 
 import * as paths from '../../features/entrance/paths';
 
@@ -20,20 +22,10 @@ class Navigation extends Component {
 
     render () {
         return (
-            <nav className="navbar navbar-expand-sm navbar-light fixed-top bg-jungle">
-                <a className="navbar-brand" href={paths.FEED}>
-                    <img src={logo} alt="logo" className="logo" />
-                </a>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon" />
+            <nav className={cx('navbar', 'navbar-expand-sm', 'navbar-light', styles.bg_jungle, styles.navbar)}>
+                <a className="navbar-brand" href={paths.FEED}><img src={logo} alt="logo" className={styles.logo}/></a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">

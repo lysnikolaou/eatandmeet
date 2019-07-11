@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
-import './CreateEvent.scss';
-// import {Route} from 'react-router-dom';
-// import {connect} from 'react-redux';
-// import * as buttonColors from "../Button/colors";
+import * as style from './index.module.scss';
+import * as buttonColors from '../Button/colors';
+import Button from '../Button';
+import cx from 'classnames';
+import './index.scss';
 
 class CreateEvent extends Component {
     render () {
         return (
-            <div className="container">
+            <div className={cx('center', 'col-lg-7', 'col-12',)}>
                 <div>
-                    <h1 className="title">NEW EVENT</h1>
+                    <h1 className={style.title}>NEW EVENT</h1>
 
                     <div className="create-event">
                         <form id="contact_form">
@@ -156,8 +157,11 @@ class CreateEvent extends Component {
                                     </li>
                                 </ul>
                             </div>
-
-                            <input type="submit" value="Submit" className="myButton" />
+                            <Button
+                                type="submit"
+                                value="Submit"
+                                color={buttonColors.GREEN}
+                            >Submit</Button>
                         </form>
                     </div>
                 </div>

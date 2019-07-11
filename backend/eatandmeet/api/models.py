@@ -1,5 +1,6 @@
 from multiselectfield import MultiSelectField
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 from authentication.models import User
 
@@ -25,9 +26,15 @@ class Event(models.Model):
     event_members = models.ManyToManyField(User, related_name='event_members', blank=True)
     topics = MultiSelectField(choices=TOPIC_CHOICES)
     location = models.CharField(max_length=11, choices =PLACE_CHOICES, default ='Hauptmensa' )
+    slots = models.IntegerField(default =3, validators=[MinValueValidator(1), MaxValueValidator(12)])
+    description = models.CharField(max_length=128)
 
     def __str__(self):
         return self.title
+    
+    def available_slots(self):
+        return self.slots - 1 - len(self.event_admins) - len(self.event_members)
+
 
 
 class Comment(models.Model):

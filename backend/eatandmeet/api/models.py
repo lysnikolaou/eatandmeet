@@ -8,7 +8,7 @@ from authentication.models import User
 TOPIC_CHOICES = [
         
         ('Politics','Politics'),
-        ('Environment','Environment')
+        ('Environment','Environment'),
         ('Education','Education'),
         ('Travel','Travel'),
         ('Sports','Sports'),
@@ -24,8 +24,6 @@ TOPIC_CHOICES = [
         ('Smalltalk','Smalltalk'),
         
     ]
-
-
 
 
 class Event(models.Model):

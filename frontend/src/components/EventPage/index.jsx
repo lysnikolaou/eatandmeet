@@ -60,6 +60,12 @@ class EventPage extends Component {
         }
         const url = window.location.href;
         const date = getDay(event.date);
+        const RVSP = {
+            capacity: event.slots,
+            attending: event.event_members.length,
+            available: event.slots - event.event_members.length,
+            percentage: event.event_members.length / event.slots,
+        };
         return (
             <div className={cx('row', styles.event_wrapper)}>
                 <div className={cx('center', 'col-lg-7', 'col-12', 'card', {
@@ -72,8 +78,8 @@ class EventPage extends Component {
                                     {
                                         event.avatar
                                             ? <img src={event.avatar} className={styles.avatar} alt="avatar"/>
-                                            : <div className="avatar">
-                                                <Octicon icon={Calendar} size="medium" className="icon_style"/>
+                                            : <div className={styles.avatar}>
+                                                <Octicon icon={Calendar} size="medium" className={styles.icon_style}/>
                                             </div>
                                     }
                                 </div>
@@ -131,7 +137,7 @@ class EventPage extends Component {
                         </li>
                         <li className="list-group-item row">
                             <h4>Details</h4>
-                            <p>{event.about}</p>
+                            <p>{event.description}</p>
                         </li>
                         <li className="list-group-item row">
                             <h4>Topics</h4>
@@ -152,12 +158,12 @@ class EventPage extends Component {
                         </li>
                         <li className="list-group-item">
                             <div className="row">
-                                <div className={cx('gray-text', event.RVSP.percentage >= 0.8 && 'col-sm-9 col-10')}>
-                                    {event.RVSP.attending} Members going / {event.RVSP.capacity} slots in Total
+                                <div className={cx('gray-text', RVSP.percentage >= 0.8 && 'col-sm-9 col-10')}>
+                                    {RVSP.attending} Members going / {RVSP.capacity} slots in Total
                                 </div>
-                                {event.RVSP.percentage >= 0.8 &&
+                                {RVSP.percentage >= 0.8 &&
                                     <div className="col-sm-3 text-danger">
-                                        {event.RVSP.available} slots left!
+                                        {RVSP.available} slots left!
                                     </div>
                                 }
                             </div>

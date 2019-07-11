@@ -36,9 +36,10 @@ const FeedList = ({
             const creator = users.filter((user) => {
                 return user.id === event.event_creator;
             });
-            console.log(creator[0].username);
+            const date = new Date(event.date);
+            const time = `${date.getUTCHours()}:${date.getMinutes()}`;
             return (
-                <FeedItem key={event.id} {...event} creator={creator[0].username}/>
+                <FeedItem key={event.id} {...event} creator={creator[0].username} time={time}/>
             )});
     }
     return (

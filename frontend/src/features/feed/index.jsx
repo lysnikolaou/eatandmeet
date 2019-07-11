@@ -15,7 +15,6 @@ const mapStateToProps = (state) => {
         events: state.feed.events,
         error: state.feed.error,
         users: state.users.items,
-        user_id: state.us
     };
 };
 
@@ -64,7 +63,7 @@ class Feed extends Component {
                     <FeedCalendar day={urlDate} />
                 </div>
                 <div className={cx('col-xl-6', 'col-lg-7', 'col-12')}>
-                    <FeedList feed={this.props.events} users={this.props.users} user={user.id} />
+                    <FeedList feed={this.props.events} users={this.props.users} />
                 </div>
             </div>
         );

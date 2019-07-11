@@ -1,19 +1,28 @@
 from multiselectfield import MultiSelectField
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 from authentication.models import User
 
 
 TOPIC_CHOICES = [
-        ('Politics', 'Politics'),
-        ('Soccer', 'Soccer'),
-        ('Films' ,'Films'),
-        ('Music' ,'Music'),
-    ]
-
-PLACE_CHOICES = [
-        ('Mathe Mensa', 'Mathe Mensa'),
-        ('Hauptmensa', 'Hauptmensa'),
+        
+        ('Politics','Politics'),
+        ('Environment','Environment'),
+        ('Education','Education'),
+        ('Travel','Travel'),
+        ('Sports','Sports'),
+        ('Music','Music'),
+        ('Movies','Movies'),
+        ('Books','Books'),
+        ('Technology','Technology'),
+        ('Science','Science'),
+        ('Animals','Animals'),
+        ('Celebrities','Celebrities'),
+        ('News','News'),
+        ('General','General'),
+        ('Smalltalk','Smalltalk'),
+        
     ]
 
 
@@ -24,10 +33,19 @@ class Event(models.Model):
     event_admins = models.ManyToManyField(User, related_name='event_admins', blank=True)
     event_members = models.ManyToManyField(User, related_name='event_members', blank=True)
     topics = MultiSelectField(choices=TOPIC_CHOICES)
-    location = models.CharField(max_length=11, choices =PLACE_CHOICES, default ='Hauptmensa' )
+    location = models.CharField(max_length=30, default='Hauptmensa' )
+    slots = models.IntegerField(default =3, validators=[MinValueValidator(1), MaxValueValidator(12)])
+    description = models.CharField(max_length=128)
+    day = models.DateField(blank=True)
+    
+    def save(self, *args, **kwargs):
+        self.day = self.date
+        super(Event, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
+
+
 
 
 class Comment(models.Model):

@@ -2,7 +2,6 @@ import React from 'react';
 import './index.scss';
 const TOPIC_CHOICES = [
     'Politics',
-    'Films',
     'Education',
     'Music', 'Travel',
     'Sports',

@@ -4,7 +4,7 @@ import * as style from './index.module.scss';
 import * as buttonColors from '../Button/colors';
 import Button from '../Button';
 import cx from 'classnames';
-import {topicsWrapper} from '../createEventTopics';
+import {topicsWrapper} from '../CreateEventTopics';
 import {connect} from 'react-redux';
 
 class CreateEvent extends Component {

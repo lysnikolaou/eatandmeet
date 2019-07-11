@@ -1,7 +1,7 @@
 import * as actionTypes from './action-types';
 
 const initialState = {
-    items: [],
+    events: [],
     loading: false,
     error: null,
 };
@@ -18,14 +18,14 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                items: action.payload.products,
+                events: action.events,
             };
         case actionTypes.FETCH_FEED_FAILURE:
             return {
                 ...state,
                 loading: false,
-                error: action.payload.error,
-                items: [],
+                error: action.error,
+                events: [],
             };
         default:
             return state;

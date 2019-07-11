@@ -43,3 +43,6 @@ class UserLoginView(LoginView):
     subsequent requests.
     """
     authentication_classes = (EmailAuthentication,)
+
+    def get_user_serializer_class(self):
+        return UserCreateSerializer

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'knox',
     'api',
     'authentication',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

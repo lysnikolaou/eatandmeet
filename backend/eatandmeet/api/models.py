@@ -6,10 +6,22 @@ from authentication.models import User
 
 
 TOPIC_CHOICES = [
-        ('Politics', 'Politics'),
-        ('Soccer', 'Soccer'),
-        ('Films','Films'),
+        
+        ('Politics','Politics'),
+        ('Education','Education'),
+        ('Travel','Travel'),
+        ('Sports','Sports'),
         ('Music','Music'),
+        ('Movies','Movies'),
+        ('Books','Books'),
+        ('Technology','Technology'),
+        ('Science','Science'),
+        ('Animals','Animals'),
+        ('Celebrities','Celebrities'),
+        ('News','News'),
+        ('General','General'),
+        ('Smalltalk','Smalltalk'),
+        
     ]
 
 PLACE_CHOICES = [

@@ -12,7 +12,7 @@ import * as buttonColors from '../Button/colors';
 import Share from '../Share';
 
 import * as styles from './index.module.scss';
-import {userActions} from "../../actions/user.actions";
+import {userActions} from '../../actions/user.actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -36,7 +36,6 @@ class EventPage extends Component {
         const {id} = this.props.match.params;
         this.props.dispatch(actions.fetchEvent(id, userId));
         this.props.dispatch(userActions.getAll());
-
     }
 
     toggleGoing () {

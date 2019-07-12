@@ -25,7 +25,7 @@ const FeedList = ({
     feed, users, userId,
 }) => {
     if (feed) {
-        feed = feed.sort((a,b) => {
+        feed = feed.sort((a, b) => {
             const aDate = new Date(a.date);
             const bDate = new Date(b.date);
             return aDate - bDate;

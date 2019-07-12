@@ -1,31 +1,28 @@
 import * as actionTypes from './action-types';
 
 const initialState = {
-    events: [],
-    loading: false,
+    event: null,
     error: null,
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.FETCH_FEED_BEGIN:
+        case actionTypes.POST_EVENT_BEGIN:
             return {
                 ...state,
-                loading: true,
                 error: null,
             };
-        case actionTypes.FETCH_FEED_SUCCESS:
+        case actionTypes.POST_EVENT_SUCCESS:
             return {
                 ...state,
-                loading: false,
-                events: action.events,
+                event: action.event,
             };
-        case actionTypes.FETCH_FEED_FAILURE:
+        case actionTypes.POST_EVENT_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.error,
-                events: [],
+                event: null,
             };
         default:
             return state;

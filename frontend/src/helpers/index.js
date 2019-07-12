@@ -1,4 +1,3 @@
-export * from './fake_backend';
 export * from './history';
-export * from '../store/store';
+export * from '../store/index';
 export * from './auth-header';

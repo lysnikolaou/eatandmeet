@@ -17,4 +17,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [FE-08](https://github.com/lysnikolaou/eatandmeet/issues/24) Share Button
 - [FE-07](https://github.com/lysnikolaou/eatandmeet/issues/23) Join Event Button
 - [FE-22](https://github.com/lysnikolaou/eatandmeet/issues/66) Event Page
+- [IG-03](https://github.com/lysnikolaou/eatandmeet/issues/63) Integrartion with server
+
 - Button Component

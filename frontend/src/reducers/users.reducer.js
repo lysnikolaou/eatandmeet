@@ -12,10 +12,12 @@ export const users = (state = {}, action) => {
         case userConstants.GETALL_SUCCESS:
             return {
                 items: action.users,
+                loading: false,
             };
         case userConstants.GETALL_FAILURE:
             return {
                 error: action.error,
+                loading: false,
             };
         case userConstants.DELETE_REQUEST:
         // add 'deleting:true' property to user being deleted

@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
         loading: state.event.loading,
         event: state.event.event,
         error: state.event.error,
-        user: state.authentication.user,
+        user: state.authentication.user.user,
         going: state.event.going,
     };
 };
@@ -27,23 +27,16 @@ class EventPage extends Component {
     constructor (props) {
         super(props);
         this.toggleGoing = this.toggleGoing.bind(this);
-        this.checkGoing = this.checkGoing.bind(this);
     }
 
     componentDidMount () {
-        const {id} = this.props.match.params;
-        this.props.dispatch(actions.fetchEvent(id));
-    }
-
-    checkGoing () {
         const userId = this.props.user.id;
-        const {event_members} = this.props.event;
-        if (event_members.includes(userId)) {
-            this.props.dispatch(actions.toggleGoing());
-        }
+        const {id} = this.props.match.params;
+        this.props.dispatch(actions.fetchEvent(id, userId));
     }
 
     toggleGoing () {
+        this.props.dispatch(actions.toggleGoing());
         const userId = this.props.user.id;
         if (this.props.going) {
             this.props.dispatch(actions.leaveEvent(this.props.event, userId,));

@@ -26,6 +26,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 event: action.event,
+                going: action.going,
             };
         case actionTypes.FETCH_EVENT_FAILURE:
             return {

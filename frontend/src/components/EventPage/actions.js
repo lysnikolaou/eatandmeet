@@ -23,13 +23,13 @@ import {eventService} from '../../services/event.service';
 // //     return response;
 // // };
 
-export const fetchEvent = (id) => {
+export const fetchEvent = (id, userId) => {
     const request = () => { return {type: actionType.FETCH_EVENT}; };
 
-    const success = (event) => {
+    const success = (event, going) => {
         return {
             type: actionType.FETCH_EVENT_SUCCESS,
-            event,
+            event, going,
         };
     };
 
@@ -43,7 +43,10 @@ export const fetchEvent = (id) => {
         dispatch(request());
         eventService.getById(id)
             .then(
-                (event) => dispatch(success(event)),
+                (event) => {
+                    const going = event.event_members.includes(userId);
+                    dispatch(success(event,going));
+                },
                 (error) => dispatch(failure(error.toString()))
             );
     };
@@ -73,7 +76,7 @@ export const joinEvent = (event, userId) => {
             .then(
                 () => {
                     dispatch(success(event));
-                    window.location.reload();
+                    // window.location.reload();
                 },
                 (error) => dispatch(failure(error.toString()))
             );
@@ -99,7 +102,7 @@ export const leaveEvent = (event, userId) => {
             .then(
                 () => {
                     dispatch(success(event));
-                    window.location.reload();
+                    // window.location.reload();
                 },
                 (error) => dispatch(failure(error.toString()))
             );

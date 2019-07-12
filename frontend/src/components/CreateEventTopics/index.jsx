@@ -3,9 +3,9 @@ import './index.scss';
 const TOPIC_CHOICES = [
     'Politics',
     'Education',
-    'Music', 'Travel',
-    'Sports',
     'Music',
+    'Travel',
+    'Sports',
     'Movies',
     'Books',
     'Technology',

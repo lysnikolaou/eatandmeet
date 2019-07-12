@@ -12,14 +12,16 @@ import * as buttonColors from '../Button/colors';
 import Share from '../Share';
 
 import * as styles from './index.module.scss';
+import {userActions} from "../../actions/user.actions";
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.event.loading,
+        loading: state.event.loading || state.users.loading,
         event: state.event.event,
         error: state.event.error,
         user: state.authentication.user.user,
         going: state.event.going,
+        users: state.users.items,
     };
 };
 
@@ -33,6 +35,8 @@ class EventPage extends Component {
         const userId = this.props.user.id;
         const {id} = this.props.match.params;
         this.props.dispatch(actions.fetchEvent(id, userId));
+        this.props.dispatch(userActions.getAll());
+
     }
 
     toggleGoing () {
@@ -56,6 +60,11 @@ class EventPage extends Component {
                 <Loader/>
             );
         }
+        const creator = this.props.users.filter((user) => {
+            return user.id === event.event_creator;
+        });
+        // const date = new Date(event.date);
+        // const time = `${date.getUTCHours()}:${date.getMinutes()}`;
         const url = window.location.href;
         const date = getDay(event.date);
         const RVSP = {
@@ -83,7 +92,7 @@ class EventPage extends Component {
                                 </div>
                                 <div className="col-lg-9 col-md-9 col-sm-9 col-8 ">
                                     <em className="gray-text">
-                                        {event.creator} presents:
+                                        {creator[0].username} presents:
                                     </em>
                                     <h3 className="display-5">
                                         {event.title}

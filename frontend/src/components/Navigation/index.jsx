@@ -41,7 +41,7 @@ class Navigation extends Component {
                                 href={paths.PROFILE}
                                 style={{textTransform: 'capitalize'}}
                             >
-                                {this.props.user.firstName}{' '}
+                                {this.props.user.user.username}{' '}
                                 <span className="sr-only">(current)</span>
                             </a>
                         </li>

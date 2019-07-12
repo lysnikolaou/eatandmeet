@@ -66,6 +66,12 @@ class EventPage extends Component {
         // const time = `${date.getUTCHours()}:${date.getMinutes()}`;
         const url = window.location.href;
         const date = getDay(event.date);
+        let time = new Date(event.date);
+        if (time.getMinutes().toString().length < 2) {
+            time = `${time.getUTCHours()}:${time.getMinutes()}0`;
+        } else {
+            time = `${time.getUTCHours()}:${time.getMinutes()}`;
+        }
         const RVSP = {
             capacity: event.slots,
             attending: event.event_members.length,
@@ -120,7 +126,7 @@ class EventPage extends Component {
                                 <div className="col">
                                     {`${date}, ${new Date(event.date).getFullYear()}`}
                                     <br/>
-                                    {event.time}
+                                    {time}
                                     <br/>
                                 </div>
                             </div>

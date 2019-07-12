@@ -1,7 +1,7 @@
 import React from 'react';
 import FeedItem from '../../../components/FeedItem';
 let feedList = '';
-
+let time = '';
 // const FeedList = ({feed}) => {
 //     console.log(`this is feed ${feed}`);
 //     if (feed) {
@@ -21,7 +21,6 @@ let feedList = '';
 //         <div>{feedList}</div>
 //     );
 // };
-
 const FeedList = ({
     feed, users, userId,
 }) => {
@@ -37,7 +36,11 @@ const FeedList = ({
             });
             const going = event.event_members.includes(userId);
             const date = new Date(event.date);
-            const time = `${date.getUTCHours()}:${date.getMinutes()}`;
+            if (date.getMinutes().toString().length < 2) {
+                time = `${date.getUTCHours()}:${date.getMinutes()}0`;
+            } else {
+                time = `${date.getUTCHours()}:${date.getMinutes()}`;
+            }
             return (
                 <FeedItem key={event.id} {...event} creator={creator[0].username} time={time} going={going}/>
             );

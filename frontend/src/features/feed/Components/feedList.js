@@ -26,6 +26,11 @@ const FeedList = ({
     feed, users, userId,
 }) => {
     if (feed) {
+        feed = feed.sort((a,b) => {
+            const aDate = new Date(a.date);
+            const bDate = new Date(b.date);
+            return aDate - bDate;
+        });
         feedList = feed.map((event) => {
             const creator = users.filter((user) => {
                 return user.id === event.event_creator;

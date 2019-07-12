@@ -12,14 +12,16 @@ import * as buttonColors from '../Button/colors';
 import Share from '../Share';
 
 import * as styles from './index.module.scss';
+import {userActions} from '../../actions/user.actions';
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.event.loading,
+        loading: state.event.loading || state.users.loading,
         event: state.event.event,
         error: state.event.error,
-        user: state.authentication.user,
+        user: state.authentication.user.user,
         going: state.event.going,
+        users: state.users.items,
     };
 };
 
@@ -27,24 +29,23 @@ class EventPage extends Component {
     constructor (props) {
         super(props);
         this.toggleGoing = this.toggleGoing.bind(this);
-        this.checkGoing = this.checkGoing.bind(this);
     }
 
     componentDidMount () {
-        const {id} = this.props.match.params;
-        this.props.dispatch(actions.fetchEvent(id));
-    }
-
-    checkGoing () {
         const userId = this.props.user.id;
-        const {members} = this.props.event;
-        if (members.includes(userId)) {
-            this.props.dispatch(actions.toggleGoing());
-        }
+        const {id} = this.props.match.params;
+        this.props.dispatch(actions.fetchEvent(id, userId));
+        this.props.dispatch(userActions.getAll());
     }
 
     toggleGoing () {
         this.props.dispatch(actions.toggleGoing());
+        const userId = this.props.user.id;
+        if (this.props.going) {
+            this.props.dispatch(actions.leaveEvent(this.props.event, userId,));
+        } else {
+            this.props.dispatch(actions.joinEvent(this.props.event, userId,));
+        }
     }
 
     render () {
@@ -58,8 +59,19 @@ class EventPage extends Component {
                 <Loader/>
             );
         }
+        const creator = this.props.users.filter((user) => {
+            return user.id === event.event_creator;
+        });
+        // const date = new Date(event.date);
+        // const time = `${date.getUTCHours()}:${date.getMinutes()}`;
         const url = window.location.href;
         const date = getDay(event.date);
+        const RVSP = {
+            capacity: event.slots,
+            attending: event.event_members.length,
+            available: event.slots - event.event_members.length,
+            percentage: event.event_members.length / event.slots,
+        };
         return (
             <div className={cx('row', styles.event_wrapper)}>
                 <div className={cx('center', 'col-lg-7', 'col-12', 'card', {
@@ -72,14 +84,14 @@ class EventPage extends Component {
                                     {
                                         event.avatar
                                             ? <img src={event.avatar} className={styles.avatar} alt="avatar"/>
-                                            : <div className="avatar">
-                                                <Octicon icon={Calendar} size="medium" className="icon_style"/>
+                                            : <div className={styles.avatar}>
+                                                <Octicon icon={Calendar} size="medium" className={styles.icon_style}/>
                                             </div>
                                     }
                                 </div>
                                 <div className="col-lg-9 col-md-9 col-sm-9 col-8 ">
                                     <em className="gray-text">
-                                        {event.creator} presents:
+                                        {creator[0].username} presents:
                                     </em>
                                     <h3 className="display-5">
                                         {event.title}
@@ -131,7 +143,7 @@ class EventPage extends Component {
                         </li>
                         <li className="list-group-item row">
                             <h4>Details</h4>
-                            <p>{event.about}</p>
+                            <p>{event.description}</p>
                         </li>
                         <li className="list-group-item row">
                             <h4>Topics</h4>
@@ -152,12 +164,12 @@ class EventPage extends Component {
                         </li>
                         <li className="list-group-item">
                             <div className="row">
-                                <div className={cx('gray-text', event.RVSP.percentage >= 0.8 && 'col-sm-9 col-10')}>
-                                    {event.RVSP.attending} Members going / {event.RVSP.capacity} slots in Total
+                                <div className={cx('gray-text', RVSP.percentage >= 0.8 && 'col-sm-9 col-10')}>
+                                    {RVSP.attending} Members going / {RVSP.capacity} slots in Total
                                 </div>
-                                {event.RVSP.percentage >= 0.8 &&
+                                {RVSP.percentage >= 0.8 &&
                                     <div className="col-sm-3 text-danger">
-                                        {event.RVSP.available} slots left!
+                                        {RVSP.available} slots left!
                                     </div>
                                 }
                             </div>

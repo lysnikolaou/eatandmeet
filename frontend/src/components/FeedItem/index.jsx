@@ -12,6 +12,12 @@ import * as styles from './index.module.scss';
 class FeedItem extends Component {
     render () {
         const {props} = this;
+        const RVSP = {
+            capacity: props.slots,
+            attending: props.event_members.length,
+            available: props.slots - props.event_members.length,
+            percentage: props.event_members.length / props.slots,
+        };
         return (
             <div className={cx(styles.card, 'card',
                 {[styles.card_go]: props.going})}>
@@ -50,13 +56,13 @@ class FeedItem extends Component {
                     </li>
                     <li className="list-group-item">
                         <div className="row">
-                            <div className={cx('gray-text', props.RVSP.percentage >= 0.8 && 'col-sm-9 col-10')}>
-                                {props.RVSP.attending} Members going / {props.RVSP.capacity} slots in Total
+                            <div className={cx('gray-text', RVSP.percentage >= 0.8 && 'col-sm-9 col-10')}>
+                                {RVSP.attending} Members going / {RVSP.capacity} slots in Total
                             </div>
                             {
-                                props.RVSP.percentage >= 0.8 &&
+                                RVSP.percentage >= 0.5 &&
                                     <div className="col-sm-3 text-danger">
-                                        {props.RVSP.available} slots left!
+                                        {RVSP.available} slots left!
                                     </div>
                             }
                         </div>

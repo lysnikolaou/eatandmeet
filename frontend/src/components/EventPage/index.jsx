@@ -37,14 +37,19 @@ class EventPage extends Component {
 
     checkGoing () {
         const userId = this.props.user.id;
-        const {members} = this.props.event;
-        if (members.includes(userId)) {
+        const {event_members} = this.props.event;
+        if (event_members.includes(userId)) {
             this.props.dispatch(actions.toggleGoing());
         }
     }
 
     toggleGoing () {
-        this.props.dispatch(actions.toggleGoing());
+        const userId = this.props.user.id;
+        if (this.props.going) {
+            this.props.dispatch(actions.leaveEvent(this.props.event, userId,));
+        } else {
+            this.props.dispatch(actions.joinEvent(this.props.event, userId,));
+        }
     }
 
     render () {

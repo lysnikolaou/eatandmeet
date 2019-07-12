@@ -52,3 +52,56 @@ export const fetchEvent = (id) => {
 export const toggleGoing = () => ({
     type: actionType.TOGGLE_GOING,
 });
+
+export const joinEvent = (event, userId) => {
+    console.log(event);
+    const success = () => {
+        return {
+            type: actionType.JOIN_EVENT,
+            event,
+        };
+    };
+    const failure = (error) => {
+        return {
+            type: actionType.JOIN_EVENT_FAILURE, error,
+        };
+    };
+
+    event.event_members.push(userId);
+    return (dispatch) => {
+        eventService.update(event)
+            .then(
+                () => {
+                    dispatch(success(event));
+                    window.location.reload();
+                },
+                (error) => dispatch(failure(error.toString()))
+            );
+    };
+};
+
+export const leaveEvent = (event, userId) => {
+    const success = () => {
+        return {
+            type: actionType.LEAVE_EVENT,
+            event,
+        };
+    };
+    const failure = (error) => {
+        return {
+            type: actionType.LEAVE_EVENT_FAILURE, error,
+        };
+    };
+
+    event.event_members.splice(event.event_members.indexOf(userId), 1);
+    return (dispatch) => {
+        eventService.update(event)
+            .then(
+                () => {
+                    dispatch(success(event));
+                    window.location.reload();
+                },
+                (error) => dispatch(failure(error.toString()))
+            );
+    };
+};

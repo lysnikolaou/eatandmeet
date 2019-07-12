@@ -39,7 +39,7 @@ class Event(models.Model):
     day = models.DateField(blank=True)
     
     def save(self, *args, **kwargs):
-        self.day = self.date
+        self.day = self.date.date()
         super(Event, self).save(*args, **kwargs)
 
     def __str__(self):

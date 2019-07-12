@@ -45,7 +45,7 @@ export const fetchEvent = (id, userId) => {
             .then(
                 (event) => {
                     const going = event.event_members.includes(userId);
-                    dispatch(success(event,going));
+                    dispatch(success(event, going));
                 },
                 (error) => dispatch(failure(error.toString()))
             );
@@ -57,7 +57,6 @@ export const toggleGoing = () => ({
 });
 
 export const joinEvent = (event, userId) => {
-    console.log(event);
     const success = () => {
         return {
             type: actionType.JOIN_EVENT,

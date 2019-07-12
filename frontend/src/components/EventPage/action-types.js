@@ -7,4 +7,3 @@ export const JOIN_EVENT = 'JOIN_EVENT';
 export const LEAVE_EVENT = 'LEAVE_EVENT';
 export const JOIN_EVENT_FAILURE = 'JOIN_EVENT_FAILURE';
 export const LEAVE_EVENT_FAILURE = 'LEAVE_EVENT_FAILURE';
-

@@ -2,7 +2,7 @@ import * as actionType from './action-types';
 import {eventService} from '../../services/event.service';
 
 export const fetchFeed = () => {
-    const request = () => { return {type: actionType.FETCH_FEED_BEGIN};};
+    const request = () => { return {type: actionType.FETCH_FEED_BEGIN}; };
 
     const success = (events) => {
         return {

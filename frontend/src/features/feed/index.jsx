@@ -15,6 +15,7 @@ const mapStateToProps = (state) => {
         events: state.feed.events,
         error: state.feed.error,
         users: state.users.items,
+        userId: state.authentication.user.user.id,
     };
 };
 
@@ -30,14 +31,16 @@ class Feed extends Component {
     // componentDidUpdate (prevProps) {
     //     if (prevProps.match.params.day !== this.props.match.params.day) {
     //         this.setState({
-    //             date: new Date(`${this.props.match.params.year}/${this.props.match.params.month}/${this.props.match.params.day}`),
+    //             date: new Date(`$
+    //             {this.props.match.params.year}/${this.props.match.params.month}/${this.props.match.params.day}`),
     //         });
     //     }
     // }
 
     componentDidMount () {
         // if (this.props.match.day) {
-        //     const urlDate = new Date(`${this.props.match.params.year}/${this.props.match.params.month}/${this.props.match.params.day}`);
+        //     const urlDate = new Date(`${this.props.match.params.year}/
+        //     ${this.props.match.params.month}/${this.props.match.params.day}`);
         //     this.setState({
         //         date: urlDate,
         //     });
@@ -63,13 +66,12 @@ class Feed extends Component {
                     <FeedCalendar day={urlDate} />
                 </div>
                 <div className={cx('col-xl-6', 'col-lg-7', 'col-12')}>
-                    <FeedList feed={this.props.events} users={this.props.users} />
+                    <FeedList feed={this.props.events} users={this.props.users} userId={this.props.userId}/>
                 </div>
             </div>
         );
     }
 }
-
 
 const connectedFeedPage = connect(mapStateToProps)(Feed);
 export {connectedFeedPage as Feed};
